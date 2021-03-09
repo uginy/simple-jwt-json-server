@@ -1,0 +1,133 @@
+{
+  "accounts": [
+    {
+      "account_id": 1,
+      "gateway_id": 1,
+      "first_name": "John",
+      "last_name": "Doe",
+      "address_street": "Street",
+      "address_city": "City",
+      "address_zip": "Street",
+      "address_country": "Street",
+      "timezone": "+3",
+      "cell_phone": "Mobile Phone",
+      "home_phone": "Home Phone",
+      "subscription_type": "0",
+      "account_email": "a@a.com",
+      "username": "admin",
+      "password": "admin",
+      "language": "en"
+    },
+    {
+      "account_id": 2,
+      "gateway_id": 1,
+      "first_name": "John2",
+      "last_name": "Doe2",
+      "address_street": "Street2",
+      "address_city": "City2",
+      "address_zip": "Street2",
+      "address_country": "Street2",
+      "timezone": "+3",
+      "phone_code": "+972",
+      "cell_phone": "1234567",
+      "home_phone": "Home Phone2",
+      "subscription_type": "0",
+      "account_email": "u@u.com",
+      "username": "user",
+      "password": "user",
+      "language": "en"
+    }
+  ],
+  "clients": [
+    {
+      "client_id": 1,
+      "account_id": 1,
+      "first_name": "Benjamin",
+      "last_name": "Strange",
+      "sex": "male",
+      "age": 32,
+      "weight": 70.5,
+      "height": 183.5,
+      "language": "en",
+      "phone_code": "+972",
+      "cell_phone": "1234567",
+      "passport_id": 333222666
+    },
+    {
+      "client_id": 2,
+      "account_id": 2,
+      "first_name": "Benjamin2",
+      "last_name": "Strange2",
+      "sex": "male",
+      "age": 31,
+      "weight": 72.5,
+      "height": 184.5,
+      "language": "he",
+      "phone_code": "+972",
+      "cell_phone": "1234567",
+      "passport_id": 333222667
+    }
+  ],
+  "contacts": [
+    {
+      "contact_id": 1,
+      "account_id": 1,
+      "first_name": "Richard",
+      "last_name": "Smith",
+      "phone_code": "+972",
+      "cell_phone": "1234567",
+      "address_street": "Street3",
+      "address_city": "City3",
+      "address_zip": "Street3",
+      "address_country": "Street3",
+      "email": "c@c.com"
+    },
+    {
+      "contact_id": 2,
+      "account_id": 2,
+      "first_name": "Chris",
+      "last_name": "Ronaldo",
+      "phone_code": "+972",
+      "cell_phone": "1234567",
+      "address_street": "Street4",
+      "address_city": "City4",
+      "address_zip": "Street4",
+      "address_country": "Street4",
+      "email": "c@c.com"
+    }
+  ],
+  "sensors": [
+    {
+      "sensor_id": 1,
+      "name": "FM001"
+    },
+    {
+      "id": 2,
+      "name": "FM002"
+    },
+    {
+      "id": 3,
+      "name": "FM003"
+    }
+  ],
+  "gateways": [
+    {
+      "id": 1,
+      "cost": 11,
+      "quantity": 10,
+      "productId": 1
+    },
+    {
+      "id": 2,
+      "cost": 12,
+      "quantity": 100,
+      "productId": 2
+    },
+    {
+      "id": 3,
+      "cost": 15,
+      "quantity": 101,
+      "productId": 3
+    }
+  ]
+}

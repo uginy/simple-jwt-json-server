@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "role": 1,
+      "language": "en"
+    }
+  ],
+  "roles": [
+    {
+      "role-id": 1,
+      "name": "Administrator",
+      "privileges": {
+        "accounts": {
+          "list": true,
+          "add": true,
+          "edit": true,
+          "remove": true,
+          "detail": true
+        },
+        "clients": {
+          "list": true,
+          "add": true,
+          "edit": true,
+          "remove": true,
+          "detail": true
+        },
+        "contacts": {
+          "list": true,
+          "add": true,
+          "edit": true,
+          "remove": true,
+          "detail": true
+        }
+      }
+    }
+  ]
+}
