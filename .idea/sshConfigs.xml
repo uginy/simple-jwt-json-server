@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="tl.dev.valigar.co.il" id="81c6ce0a-d331-4285-a870-a04cc4bb8f36" port="22" nameFormat="DESCRIPTIVE" username="dev1" />
+    </configs>
+  </component>
+</project>
