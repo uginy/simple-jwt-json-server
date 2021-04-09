@@ -1,11 +1,13 @@
 {
   "name": "json-server-api",
   "version": "1.0.0",
-  "description": "Simple Fake API",
-  "main": "server.js",
+  "description": "Simple Fake JWT API",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon json-server --watch ./database.json --port 8080",
-    "start-auth": "nodemon server.js"
+    "start": "node index.js",
+    "startlocal": "node index.js",
+    "dev": "nodemon json-server --watch ./database.json --port 8090",
+    "start-auth": "nodemon index.js"
   },
   "author": "ME:)",
   "license": "ISC",

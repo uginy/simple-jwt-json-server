@@ -1,47 +1,118 @@
 {
   "accounts": [
     {
-      "account_id": 1,
-      "gateway_id": 1,
-      "first_name": "John",
-      "last_name": "Doe",
-      "address_street": "Street",
-      "address_city": "City",
-      "address_zip": "Street",
-      "address_country": "Street",
-      "timezone": "+3",
-      "cell_phone": "Mobile Phone",
-      "home_phone": "Home Phone",
-      "subscription_type": "0",
-      "account_email": "a@a.com",
-      "username": "admin",
-      "password": "admin",
-      "language": "en"
+      "id": "1",
+      "gateway_id": "1",
+      "owner_first_name": "John",
+      "owner_last_name": "Doe",
+      "owner_address_street": "Street",
+      "owner_address_city": "City",
+      "owner_address_zip": "Street",
+      "owner_address_country": "Street",
+      "timezone_utc_offset": "+3",
+      "owner_cell_phone": "1234567",
+      "owner_home_phone": "Home Phone",
+      "subscription_id": "0",
+      "owner_account_email": "a@a.com",
+      "language": "en",
+      "rooms": [
+        {
+          "room_tag": "room1_12",
+          "room_size": {
+            "length": 13,
+            "width": 7
+          },
+          "connected_to": "uuid2"
+        },
+        {
+          "room_tag": "room1_2",
+          "room_size": {
+            "length": 15,
+            "width": 8
+          },
+          "connected_to": [
+            "uuid2"
+          ]
+        }
+      ]
     },
     {
-      "account_id": 2,
-      "gateway_id": 1,
-      "first_name": "John2",
-      "last_name": "Doe2",
-      "address_street": "Street2",
-      "address_city": "City2",
-      "address_zip": "Street2",
-      "address_country": "Street2",
-      "timezone": "+3",
-      "phone_code": "+972",
-      "cell_phone": "1234567",
-      "home_phone": "Home Phone2",
-      "subscription_type": "0",
-      "account_email": "u@u.com",
-      "username": "user",
-      "password": "user",
-      "language": "en"
+      "id": "2",
+      "gateway_id": "1",
+      "owner_first_name": "John2",
+      "owner_last_name": "Doe2",
+      "owner_address_street": "Street2",
+      "owner_address_city": "City2",
+      "owner_address_zip": "Street2",
+      "owner_address_country": "Street2",
+      "timezone_utc_offset": "+32",
+      "owner_cell_phone": "12345672",
+      "owner_home_phone": "Home Phone2",
+      "subscription_id": "02",
+      "owner_account_email": "a@a.com2",
+      "language": "en",
+      "rooms": [
+        {
+          "room_tag": "room2",
+          "room_size": {
+            "length": 12,
+            "width": 5
+          },
+          "connected_to": [
+            "uuid2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "gateway_id": "1",
+      "owner_first_name": "John31",
+      "owner_last_name": "Doe3",
+      "owner_address_street": "Street3",
+      "owner_address_city": "City3",
+      "owner_address_zip": "Street3",
+      "owner_address_country": "Street3",
+      "timezone_utc_offset": "+3",
+      "owner_cell_phone": "12345673",
+      "owner_home_phone": "Home Phone3",
+      "subscription_id": "0",
+      "owner_account_email": "a@a.com3",
+      "language": "en",
+      "rooms": [
+        {
+          "room_tag": "room3",
+          "room_size": {
+            "length": 11,
+            "width": 3
+          },
+          "connected_to": [
+            "uuid1"
+          ]
+        }
+      ]
+    },
+    {
+      "owner_first_name": "Name",
+      "owner_last_name": "Last",
+      "owner_cell_phone": "123456789",
+      "owner_home_phone": "123123123",
+      "owner_account_email": "aaa@aaa.com",
+      "gateway_id": "123",
+      "timezone_utc_offset": "123",
+      "owner_address_street": "Street",
+      "owner_address_city": "City",
+      "owner_address_zip": "123",
+      "owner_address_country": "Israel",
+      "rooms": [],
+      "subscription_id": 57,
+      "id": "p4ZAKTh"
     }
   ],
   "clients": [
     {
-      "client_id": 1,
-      "account_id": 1,
+      "id": "1",
+      "account_id": "1",
       "first_name": "Benjamin",
       "last_name": "Strange",
       "sex": "male",
@@ -51,11 +122,11 @@
       "language": "en",
       "phone_code": "+972",
       "cell_phone": "1234567",
-      "passport_id": 333222666
+      "passport_id": "333222666"
     },
     {
-      "client_id": 2,
-      "account_id": 2,
+      "id": "2",
+      "account_id": "2",
       "first_name": "Benjamin2",
       "last_name": "Strange2",
       "sex": "male",
@@ -65,13 +136,13 @@
       "language": "he",
       "phone_code": "+972",
       "cell_phone": "1234567",
-      "passport_id": 333222667
+      "passport_id": "333222667"
     }
   ],
   "contacts": [
     {
-      "contact_id": 1,
-      "account_id": 1,
+      "id": "1",
+      "account_id": "1",
       "first_name": "Richard",
       "last_name": "Smith",
       "phone_code": "+972",
@@ -83,8 +154,8 @@
       "email": "c@c.com"
     },
     {
-      "contact_id": 2,
-      "account_id": 2,
+      "id": "2",
+      "account_id": "2",
       "first_name": "Chris",
       "last_name": "Ronaldo",
       "phone_code": "+972",
@@ -98,36 +169,288 @@
   ],
   "sensors": [
     {
-      "sensor_id": 1,
+      "id": "1",
       "name": "FM001"
-    },
-    {
-      "id": 2,
-      "name": "FM002"
-    },
-    {
-      "id": 3,
-      "name": "FM003"
     }
   ],
   "gateways": [
     {
-      "id": 1,
+      "id": "1",
       "cost": 11,
       "quantity": 10,
-      "productId": 1
+      "productId": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "cost": 12,
       "quantity": 100,
-      "productId": 2
+      "productId": "2"
     },
     {
-      "id": 3,
+      "id": "3",
       "cost": 15,
       "quantity": 101,
-      "productId": 3
+      "productId": "3"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "user_id": 1,
+      "type": "emergency",
+      "date_time": "2021-03-29T10:58:57.795Z",
+      "account_id": "36",
+      "account_name": "FN FL",
+      "resident_id": "22",
+      "sensor_id": "kitchen1",
+      "resident_name": "res_name",
+      "notes": "asdasdwwwww",
+      "description": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 ",
+      "status": "closed",
+      "status_popup": "closed"
+    },
+    {
+      "id": "2",
+      "user_id": 1,
+      "type": "activity",
+      "date_time": "2021-03-29T10:58:57.795Z",
+      "account_id": "36",
+      "account_name": "FN FL",
+      "resident_id": "22",
+      "sensor_id": "kitchen1",
+      "resident_name": "res_name",
+      "notes": "werwerwer",
+      "description": "2222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 2",
+      "status": "closed",
+      "status_popup": "closed"
+    },
+    {
+      "id": "3",
+      "user_id": 1,
+      "type": "technical",
+      "date_time": "2021-03-29T10:58:57.795Z",
+      "account_id": 40,
+      "account_name": "Nataliia test",
+      "resident_id": 23,
+      "resident_name": "Abraham Li",
+      "sensor_id": "sensor1",
+      "notes": "asdasd",
+      "description": "33333 3 33333333333 3 33333333333 3 33333333333 3 33333333333 3 33333333333 3 333333",
+      "status": "open",
+      "status_popup": "closed"
+    },
+    {
+      "id": "4",
+      "user_id": 1,
+      "type": "emergency",
+      "date_time": "2021-03-29T10:58:57.795Z",
+      "account_id": 40,
+      "account_name": "Nataliia test",
+      "resident_id": 23,
+      "resident_name": "Abraham Li",
+      "sensor_id": "sensor1",
+      "notes": "asdasddgdfgdfgdfgfghfghfg",
+      "description": "4444444 44444444444 44444444444 44444444444 44444444444 4444",
+      "status": "closed",
+      "status_popup": "closed"
+    }
+  ],
+  "reports": [
+    {
+      "date": "2021-04-08",
+      "activity": "shower",
+      "person": 11,
+      "label": "label_1",
+      "times": [
+        {
+          "start": "2021-04-08T00:00:57.795Z",
+          "end": "2021-04-08T00:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T05:00:57.795Z",
+          "end": "2021-04-08T06:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T07:00:57.795Z",
+          "end": "2021-04-08T08:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T10:00:57.795Z",
+          "end": "2021-04-08T11:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T12:00:57.795Z",
+          "end": "2021-04-08T13:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "toilet",
+      "person": 11,
+      "label": "label_2",
+      "times": [
+        {
+          "start": "2021-04-08T10:58:57.795Z",
+          "end": "2021-04-08T11:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T14:58:57.795Z",
+          "end": "2021-04-08T15:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "eating",
+      "person": 11,
+      "label": "label_3",
+      "times": [
+        {
+          "start": "2021-04-08T10:58:57.795Z",
+          "end": "2021-04-08T11:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T15:18:57.795Z",
+          "end": "2021-04-08T16:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "talking",
+      "person": 11,
+      "label": "label_4",
+      "times": [
+        {
+          "start": "2021-04-08T10:58:57.795Z",
+          "end": "2021-04-08T12:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T13:58:57.795Z",
+          "end": "2021-04-08T14:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "sitting",
+      "person": 11,
+      "label": "label_5",
+      "times": [
+        {
+          "start": "2021-04-08T10:58:57.795Z",
+          "end": "2021-04-08T11:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T13:58:57.795Z",
+          "end": "2021-04-08T14:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "running",
+      "person": 11,
+      "label": "label_6",
+      "times": [
+        {
+          "start": "2021-04-08T10:58:57.795Z",
+          "end": "2021-04-08T11:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T11:58:57.795Z",
+          "end": "2021-04-08T12:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "shower",
+      "person": 16,
+      "label": "label_1",
+      "times": [
+        {
+          "start": "2021-04-08T04:00:57.795Z",
+          "end": "2021-04-08T05:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T06:00:57.795Z",
+          "end": "2021-04-08T07:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "toilet",
+      "person": 16,
+      "label": "label_2",
+      "times": [
+        {
+          "start": "2021-04-08T11:58:57.795Z",
+          "end": "2021-04-08T12:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "eating",
+      "person": 16,
+      "label": "label_3",
+      "times": [
+        {
+          "start": "2021-04-08T11:58:57.795Z",
+          "end": "2021-04-08T12:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T15:18:57.795Z",
+          "end": "2021-04-08T16:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "talking",
+      "person": 16,
+      "label": "label_4",
+      "times": [
+        {
+          "start": "2021-04-08T11:58:57.795Z",
+          "end": "2021-04-08T13:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T12:58:57.795Z",
+          "end": "2021-04-08T13:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "sitting",
+      "person": 16,
+      "label": "label_5",
+      "times": [
+        {
+          "start": "2021-04-08T11:58:57.795Z",
+          "end": "2021-04-08T13:18:57.795Z"
+        },
+        {
+          "start": "2021-04-08T14:58:57.795Z",
+          "end": "2021-04-08T15:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-08",
+      "activity": "running",
+      "person": 16,
+      "label": "label_6",
+      "times": [
+        {
+          "start": "2021-04-08T10:58:57.795Z",
+          "end": "2021-04-08T11:18:57.795Z"
+        }
+      ]
     }
   ]
 }
