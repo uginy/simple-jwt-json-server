@@ -258,7 +258,7 @@
   "reports": [
     {
       "date": "2021-04-09",
-      "activity": "shower",
+      "activity": "bed",
       "person": 11,
       "label": "label_1",
       "times": [
@@ -286,7 +286,7 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "toilet",
+      "activity": "sofa",
       "person": 11,
       "label": "label_2",
       "times": [
@@ -302,7 +302,7 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "eating",
+      "activity": "panic",
       "person": 11,
       "label": "label_3",
       "times": [
@@ -318,7 +318,7 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "talking",
+      "activity": "toilet",
       "person": 11,
       "label": "label_4",
       "times": [
@@ -334,7 +334,7 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "sitting",
+      "activity": "occupancy",
       "person": 11,
       "label": "label_5",
       "times": [
@@ -350,7 +350,23 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "running",
+      "activity": "temperature",
+      "person": 11,
+      "label": "label_5",
+      "times": [
+        {
+          "start": "2021-04-09T13:58:57.795Z",
+          "end": "2021-04-09T14:18:57.795Z"
+        },
+        {
+          "start": "2021-04-09T13:58:57.795Z",
+          "end": "2021-04-09T14:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-09",
+      "activity": "magnet",
       "person": 11,
       "label": "label_6",
       "times": [
@@ -366,7 +382,7 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "shower",
+      "activity": "temperature",
       "person": 16,
       "label": "label_1",
       "times": [
@@ -382,7 +398,7 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "toilet",
+      "activity": "magnet",
       "person": 16,
       "label": "label_2",
       "times": [
@@ -394,7 +410,7 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "eating",
+      "activity": "panic",
       "person": 16,
       "label": "label_3",
       "times": [
@@ -410,7 +426,7 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "talking",
+      "activity": "occupancy",
       "person": 16,
       "label": "label_4",
       "times": [
@@ -426,7 +442,7 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "sitting",
+      "activity": "sofa",
       "person": 16,
       "label": "label_5",
       "times": [
@@ -442,7 +458,19 @@
     },
     {
       "date": "2021-04-09",
-      "activity": "running",
+      "activity": "bed",
+      "person": 16,
+      "label": "label_6",
+      "times": [
+        {
+          "start": "2021-04-09T10:58:57.795Z",
+          "end": "2021-04-09T11:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-09",
+      "activity": "toilet",
       "person": 16,
       "label": "label_6",
       "times": [
