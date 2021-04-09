@@ -33,10 +33,10 @@ index.post("/auth/register", (req, res) => {
         const data = JSON.parse(dataBuff.toString());
 
         // Get the id of last user
-        const last_item_id = data?.users[data.users.length - 1].id;
+        const last_item_id = data.users[data.users.length - 1].id;
 
         //Add new user
-        data?.users.push({id: last_item_id + 1, username: username, password: password}); //add some data
+        data.users.push({id: last_item_id + 1, username: username, password: password}); //add some data
         fs.writeFile("./users.json", JSON.stringify(data), (err, _) => {
             // WRITE
             if (err) {
@@ -106,7 +106,7 @@ index.use(/^(?!\/auth).*$/, (req, res, next) => {
 });
 
 index.post("/reports-new", (req, res) => {
-    const result = helpers.databaseDB?.reports?.filter(helpers.search, req.body);
+    const result = helpers.databaseDB.reports.filter(helpers.search, req.body);
     res.status(200).json({count: result.length, data: result});
 });
 
