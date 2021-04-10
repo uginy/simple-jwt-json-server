@@ -1,6 +1,9 @@
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 
+const TranslateApi = require('reverso-api');
+const reverso = new TranslateApi();
+
 const secret = "123456789";
 const expiresIn = "1h"
 
@@ -9,7 +12,7 @@ const databaseDB = JSON.parse(fs.readFileSync("./database.json", "utf-8").toStri
 const countriesDB = JSON.parse(fs.readFileSync("./countries.json", "utf-8").toString())
 
 const countries = () => {
-    return countriesDB.map(el=> {
+    return countriesDB.map(el => {
         return {
             label: el.country,
             value: el.country
@@ -18,8 +21,8 @@ const countries = () => {
 }
 
 const cities = (country) => {
-    const findCountry = countriesDB.find( it => it.country === country)
-    return findCountry.cities.map(el=> {
+    const findCountry = countriesDB.find(it => it.country === country)
+    return findCountry.cities.map(el => {
         return {
             label: el,
             value: el
@@ -61,6 +64,15 @@ const userProfile = ({username}) => {
     return this.userDB.users.find((user) => user.username === username) || null;
 }
 
+const translate = ({text, to}) => {
+    return reverso.getContext(text, "English", to).then(response => {
+        console.log(response);
+        return response
+    }).catch(err => {
+        return console.error(err);
+    });
+
+}
 module.exports = {
     expiresIn,
     userDB,
@@ -71,5 +83,6 @@ module.exports = {
     isAuthenticated,
     userProfile,
     countries,
-    cities
+    cities,
+    translate
 }
