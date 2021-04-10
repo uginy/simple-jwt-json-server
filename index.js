@@ -121,6 +121,15 @@ index.post("/countries", (req, res) => {
     res.status(200).json({country, count: result.length, data: result});
 });
 
+index.post("/translate/:id", (req, res) => {
+    const text = req.body.text;
+    const to = req.params.id;
+    helpers.translate({text, to}).then(result => {
+        res.status(200).json({translated: result.translation[0]});
+    });
+    // res.status(200).json({text, to});
+});
+
 index.use(router);
 
 const port = process.env.PORT || 8090;
