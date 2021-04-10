@@ -115,7 +115,7 @@ index.get("/countries", (req, res) => {
     res.status(200).json({count: result.length, data: result});
 });
 
-index.post("/cities", (req, res) => {
+index.post("/countries", (req, res) => {
     const {country} = req.body;
     const result = helpers.cities(country)
     res.status(200).json({country, count: result.length, data: result});

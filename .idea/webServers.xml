@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="f7072ae9-ed3b-4c27-8712-b6950f271cff" name="tl.dev.valigar.co.il" url="http://tl.dev.valigar.co.il/server">
-        <fileTransfer rootFolder="/home/dev1/web/tl.dev.valigar.co.il/public_html/server" accessType="SFTP" host="tl.dev.valigar.co.il" port="22" sshConfigId="81c6ce0a-d331-4285-a870-a04cc4bb8f36" sshConfig="dev1@tl.dev.valigar.co.il:22 password">
+      <webServer id="f7072ae9-ed3b-4c27-8712-b6950f271cff" name="tl.dev.valigar.co.il" url="http://tl.dev.valigar.co.il:8090">
+        <fileTransfer rootFolder="/home/dev1/tl/server" accessType="SFTP" host="tl.dev.valigar.co.il" port="22" sshConfigId="81c6ce0a-d331-4285-a870-a04cc4bb8f36" sshConfig="dev1@tl.dev.valigar.co.il:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
