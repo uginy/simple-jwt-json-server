@@ -6,6 +6,26 @@ const expiresIn = "1h"
 
 const userDB = JSON.parse(fs.readFileSync("./users.json", "utf-8").toString())
 const databaseDB = JSON.parse(fs.readFileSync("./database.json", "utf-8").toString())
+const countriesDB = JSON.parse(fs.readFileSync("./countries.json", "utf-8").toString())
+
+const countries = () => {
+    return countriesDB.map(el=> {
+        return {
+            label: el.country,
+            value: el.country
+        }
+    })
+}
+
+const cities = (country) => {
+    const findCountry = countriesDB.find( it => it.country === country)
+    return findCountry.cities.map(el=> {
+        return {
+            label: el,
+            value: el
+        }
+    })
+}
 
 // search database db with conditions from req.body
 const search = (data) => {
@@ -49,5 +69,7 @@ module.exports = {
     createToken,
     verifyToken,
     isAuthenticated,
-    userProfile
+    userProfile,
+    countries,
+    cities
 }

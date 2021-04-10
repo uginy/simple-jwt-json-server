@@ -110,6 +110,17 @@ index.post("/reports-new", (req, res) => {
     res.status(200).json({count: result.length, data: result});
 });
 
+index.get("/countries", (req, res) => {
+    const result = helpers.countries()
+    res.status(200).json({count: result.length, data: result});
+});
+
+index.post("/cities", (req, res) => {
+    const {country} = req.body;
+    const result = helpers.cities(country)
+    res.status(200).json({country, count: result.length, data: result});
+});
+
 index.use(router);
 
 const port = process.env.PORT || 8090;
