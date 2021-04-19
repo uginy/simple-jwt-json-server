@@ -1,0 +1,447 @@
+{
+  "notifications": [
+    {
+      "id": "1",
+      "user_id": 1,
+      "type": "emergency",
+      "date_time": "2021-04-19T10:58:57.795Z",
+      "account_id": 36,
+      "account_name": "Nataliia1 test",
+      "resident_id": "22",
+      "sensor_id": "kitchen1",
+      "resident_name": "Maria Kessev",
+      "notes": "asdasdwwwww",
+      "description": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 ",
+      "status": "closed",
+      "status_popup": "closed"
+    },
+    {
+      "id": "2",
+      "user_id": 1,
+      "type": "activity",
+      "date_time": "2021-04-19T15:18:57.795Z",
+      "account_id": 36,
+      "account_name": "Nataliia1 test",
+      "resident_id": "22",
+      "sensor_id": "kitchen1",
+      "resident_name": "Maria Kessev",
+      "notes": "werwerwer",
+      "description": "2222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 2",
+      "status": "closed",
+      "status_popup": "closed"
+    },
+    {
+      "id": "3",
+      "user_id": 1,
+      "type": "technical",
+      "date_time": "2021-04-19T14:58:57.795Z",
+      "account_id": 42,
+      "account_name": "Kobby Greenberg",
+      "resident_id": 24,
+      "resident_name": "Kobby1 GreenBerg1",
+      "sensor_id": "sensor1",
+      "notes": "asdasd",
+      "description": "33333 3 33333333333 3 33333333333 3 33333333333 3 33333333333 3 33333333333 3 333333",
+      "status": "open",
+      "status_popup": "opened"
+    },
+    {
+      "id": "4",
+      "user_id": 1,
+      "type": "emergency",
+      "date_time": "2021-04-19T10:58:57.795Z",
+      "account_id": 42,
+      "account_name": "Kobby Greenberg",
+      "resident_id": 25,
+      "resident_name": "Kobby2 Greenberg2",
+      "sensor_id": "sensor1",
+      "notes": "asdasddgdfgdfgdfgfghfghfg",
+      "description": "4444444 44444444444 44444444444 44444444444 44444444444 4444",
+      "status": "closed",
+      "status_popup": "closed"
+    }
+  ],
+  "reports": [
+    {
+      "date": "2021-04-19",
+      "activity": "Entrance Room",
+      "person": 22,
+      "label": "label_1",
+      "times": [
+        {
+          "start": "2021-04-19T00:00:57.795Z",
+          "end": "2021-04-19T00:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T05:00:57.795Z",
+          "end": "2021-04-19T06:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T07:00:57.795Z",
+          "end": "2021-04-19T08:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T10:00:57.795Z",
+          "end": "2021-04-19T11:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T12:00:57.795Z",
+          "end": "2021-04-19T13:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Toilet 1",
+      "person": 22,
+      "label": "label_2",
+      "times": [
+        {
+          "start": "2021-04-19T10:58:57.795Z",
+          "end": "2021-04-19T11:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T14:58:57.795Z",
+          "end": "2021-04-19T15:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Toilet 2",
+      "person": 22,
+      "label": "label_3",
+      "times": [
+        {
+          "start": "2021-04-19T10:30:57.795Z",
+          "end": "2021-04-19T10:35:57.795Z"
+        },
+        {
+          "start": "2021-04-19T12:10:57.795Z",
+          "end": "2021-04-19T12:20:57.795Z"
+        },
+        {
+          "start": "2021-04-19T13:15:57.795Z",
+          "end": "2021-04-19T13:30:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Kitchen",
+      "person": 22,
+      "label": "label_4",
+      "times": [
+        {
+          "start": "2021-04-19T10:58:57.795Z",
+          "end": "2021-04-19T12:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T13:58:57.795Z",
+          "end": "2021-04-19T14:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Living Room",
+      "person": 22,
+      "label": "label_5",
+      "times": [
+        {
+          "start": "2021-04-19T10:58:57.795Z",
+          "end": "2021-04-19T11:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T13:58:57.795Z",
+          "end": "2021-04-19T14:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Bedroom",
+      "person": 22,
+      "label": "label_5",
+      "times": [
+        {
+          "start": "2021-04-19T13:58:57.795Z",
+          "end": "2021-04-19T14:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T13:58:57.795Z",
+          "end": "2021-04-19T14:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Corridor 1",
+      "person": 22,
+      "label": "label_6",
+      "times": [
+        {
+          "start": "2021-04-19T10:58:57.795Z",
+          "end": "2021-04-19T11:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T11:58:57.795Z",
+          "end": "2021-04-19T12:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Entrance Room",
+      "person": 18,
+      "label": "label_2",
+      "times": [
+        {
+          "start": "2021-04-19T11:58:57.795Z",
+          "end": "2021-04-19T12:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Toilet 1",
+      "person": 18,
+      "label": "label_3",
+      "times": [
+        {
+          "start": "2021-04-19T11:58:57.795Z",
+          "end": "2021-04-19T12:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T15:18:57.795Z",
+          "end": "2021-04-19T16:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Toilet 2",
+      "person": 18,
+      "label": "label_4",
+      "times": [
+        {
+          "start": "2021-04-19T11:58:57.795Z",
+          "end": "2021-04-19T13:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T12:58:57.795Z",
+          "end": "2021-04-19T13:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Kitchen",
+      "person": 18,
+      "label": "label_5",
+      "times": [
+        {
+          "start": "2021-04-19T11:58:57.795Z",
+          "end": "2021-04-19T13:18:57.795Z"
+        },
+        {
+          "start": "2021-04-19T14:58:57.795Z",
+          "end": "2021-04-19T15:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Living Room",
+      "person": 18,
+      "label": "label_6",
+      "times": [
+        {
+          "start": "2021-04-19T10:58:57.795Z",
+          "end": "2021-04-19T11:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Bedroom",
+      "person": 18,
+      "label": "label_6",
+      "times": [
+        {
+          "start": "2021-04-19T10:58:57.795Z",
+          "end": "2021-04-19T11:18:57.795Z"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-19",
+      "activity": "Corridor 1",
+      "person": 18,
+      "label": "label_6",
+      "times": [
+        {
+          "start": "2021-04-19T13:58:57.795Z",
+          "end": "2021-04-19T14:18:57.795Z"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": 1,
+      "account_id": 36,
+      "rule_type": 0,
+      "algorithm_type": 1,
+      "notification_type": "emergency",
+      "person_id": 18,
+      "sensor_id": [
+        "sensor1",
+        "fjy"
+      ],
+      "time": {
+        "start": "13:34",
+        "end": "14:56"
+      },
+      "frequency": "daily",
+      "enabled": true,
+      "extra_values": {
+        "base_unit": "hrs",
+        "low_value": 1,
+        "high_value": 3,
+        "base_type": "fix",
+        "base_value": 98
+      },
+      "created_at": "2021-04-19T11:58:57.795Z",
+      "updated_at": "2021-04-19T11:58:57.795Z"
+    },
+    {
+      "id": 2,
+      "account_id": 36,
+      "rule_type": 4,
+      "algorithm_type": 0,
+      "notification_type": "activity",
+      "person_id": 18,
+      "sensor_id": [
+        "sensor1",
+        "fjy"
+      ],
+      "time": {
+        "start": "14:34",
+        "end": "15:56"
+      },
+      "frequency": "weekly",
+      "enabled": true,
+      "extra_values": {
+        "base_unit": "hrs",
+        "low_value": 1,
+        "high_value": 3,
+        "base_type": "fix",
+        "base_value": 2
+      },
+      "created_at": "2021-04-19T11:58:57.795Z",
+      "updated_at": "2021-04-19T11:58:57.795Z"
+    },
+    {
+      "id": 3,
+      "account_id": 36,
+      "rule_type": 1,
+      "algorithm_type": 1,
+      "notification_type": "emergency",
+      "person_id": 22,
+      "sensor_id": [
+        "sensor1",
+        "fjy"
+      ],
+      "time": {
+        "start": "06:34",
+        "end": "07:56"
+      },
+      "frequency": "daily",
+      "enabled": true,
+      "extra_values": {
+        "base_unit": "hrs",
+        "low_value": 1,
+        "high_value": 3,
+        "base_type": "fix",
+        "base_value": 4
+      },
+      "created_at": "2021-04-19T11:58:57.795Z",
+      "updated_at": "2021-04-19T11:58:57.795Z"
+    },
+    {
+      "id": 4,
+      "time": {
+        "end": "18:44",
+        "start": "18:44"
+      },
+      "person_id": 22,
+      "extra_values": {
+        "base_unit": "hrs",
+        "low_value": 2,
+        "high_value": 2,
+        "base_type": "computed",
+        "base_value": 45
+      },
+      "frequency": "daily",
+      "enabled": true,
+      "notification_type": "technical",
+      "algorithm_type": 0,
+      "rule_type": 1,
+      "account_id": 36,
+      "sensor_id": [
+        "sensor1",
+        "fjy"
+      ]
+    },
+    {
+      "rule_type": 0,
+      "algorithm_type": 0,
+      "notification_type": "emergency",
+      "frequency": "daily",
+      "enabled": true,
+      "time": {
+        "start": "00:00",
+        "end": "23:00"
+      },
+      "extra_values": {
+        "base_unit": "hrs",
+        "base_type": "fix",
+        "base_value": 0,
+        "low_value": 0,
+        "high_value": 0
+      },
+      "sensor_id": [
+        "0x00124b00224306ad"
+      ],
+      "person_id": 11,
+      "account_id": 35,
+      "id": 5
+    },
+    {
+      "rule_type": 0,
+      "algorithm_type": 0,
+      "notification_type": "emergency",
+      "frequency": "daily",
+      "enabled": true,
+      "time": {
+        "start": "00:00",
+        "end": "23:00"
+      },
+      "extra_values": {
+        "base_unit": "hrs",
+        "base_type": "fix",
+        "base_value": 0,
+        "low_value": 0,
+        "high_value": 0
+      },
+      "sensor_id": [
+        "sensor1",
+        "fjy"
+      ],
+      "person_id": 22,
+      "account_id": 36,
+      "id": 6
+    }
+  ]
+}
