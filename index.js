@@ -6,9 +6,8 @@ const router = jsonServer.router("./fixtures/database.json");
 const auth = require("./middleware/auth");
 const countries = require("./middleware/countries");
 const translate = require("./middleware/reverso");
-
-const rulesController = require("./controllers/rules");
-const reportsController = require("./controllers/reports");
+const notifications = require("./middleware/notifications");
+const rules = require("./middleware/rules");
 const useSecure = false;
 
 index.use(express.json());
@@ -127,8 +126,15 @@ index.post("/countries", (req, res) => {
 });
 
 // Rules helpers
-index.get("/rule_types", rulesController.rule_types);
-index.get("/rule_types/:id", rulesController.algorithm_types);
+index.get("/rule_types", (req, res) => {
+  const result = rules.ruleTypes();
+  res.status(200).json(result);
+});
+
+index.get("/rule_types/:id", (req, res) => {
+  const result = rules.algorithmTypes(req.params.id);
+  res.status(200).json(result);
+});
 
 index.post("/translate/:id", (req, res) => {
   const text = req.body.text;
@@ -138,7 +144,10 @@ index.post("/translate/:id", (req, res) => {
   });
 });
 
-index.get("/report-notifications/:date/:person_id", reportsController.reportsNotifications);
+index.get("/report-notifications/:date/:person_id", (req, res) => {
+  const result = notifications.notificationsReport({ date: req.params.date, person_id: req.params.person_id });
+  res.status(200).json(result);
+});
 
 index.use(router);
 
