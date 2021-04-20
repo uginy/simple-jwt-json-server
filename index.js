@@ -4,14 +4,13 @@ const jsonServer = require("json-server");
 const index = jsonServer.create();
 const router = jsonServer.router("./fixtures/database.json");
 const auth = require("./middleware/auth");
-const countries = require("./middleware/countries");
-const translate = require("./middleware/reverso");
-const notifications = require("./middleware/notifications");
-const rules = require("./middleware/rules");
+const apiRouter = require('./routes/index')
 const useSecure = false;
+const reportsMiddleware = require('./middleware/reportsMiddleware')
 
 index.use(express.json());
 index.use(jsonServer.defaults());
+index.use('/api', apiRouter)
 
 // Register New User
 index.post("/auth/register", (req, res) => {
@@ -107,46 +106,6 @@ index.use(/^(?!\/auth).*$/, (req, res, next) => {
     const message = "Error access_token is revoked";
     res.status(status).json({ status, message });
   }
-});
-
-index.post("/reports-new", (req, res) => {
-  const result = auth.databaseDB.reports.filter(auth.search, req.body);
-  res.status(200).json({ count: result.length, data: result });
-});
-
-index.get("/countries", (req, res) => {
-  const result = countries.countries();
-  res.status(200).json({ count: result.length, data: result });
-});
-
-index.post("/countries", (req, res) => {
-  const { country } = req.body;
-  const result = countries.cities(country);
-  res.status(200).json({ country, count: result.length, data: result });
-});
-
-// Rules helpers
-index.get("/rule_types", (req, res) => {
-  const result = rules.ruleTypes();
-  res.status(200).json(result);
-});
-
-index.get("/rule_types/:id", (req, res) => {
-  const result = rules.algorithmTypes(req.params.id);
-  res.status(200).json(result);
-});
-
-index.post("/translate/:id", (req, res) => {
-  const text = req.body.text;
-  const to = req.params.id;
-  translate.translate({ text, to }).then((result) => {
-    res.status(200).json({ translated: result.translation[0] });
-  });
-});
-
-index.get("/report-notifications/:date/:person_id", (req, res) => {
-  const result = notifications.notificationsReport({ date: req.params.date, person_id: req.params.person_id });
-  res.status(200).json(result);
 });
 
 index.use(router);
