@@ -6,7 +6,7 @@
       "type": "activity",
       "rule_type": "Toilet Use",
       "notification_type": "Urination Frequency",
-      "date_time": "2021-04-19T10:58:57.795Z",
+      "date_time": "2021-04-22T10:58:57.795Z",
       "account_id": 36,
       "account_name": "Nataliia1 test",
       "resident_id": 22,
@@ -32,7 +32,7 @@
       "type": "emergency",
       "rule_type": "Panic",
       "notification_type": "Emergency",
-      "date_time": "2021-04-19T15:18:57.795Z",
+      "date_time": "2021-04-22T15:18:57.795Z",
       "account_id": 36,
       "account_name": "Nataliia1 test",
       "resident_id": 22,
@@ -57,7 +57,7 @@
       "type": "activity",
       "rule_type": "Bed Use",
       "notification_type": "Sleep Duration",
-      "date_time": "2021-04-19T14:58:57.795Z",
+      "date_time": "2021-04-22T14:58:57.795Z",
       "account_id": 42,
       "account_name": "Kobby Greenberg",
       "resident_id": 24,
@@ -83,7 +83,7 @@
       "type": "activity",
       "rule_type": "Toilet Use",
       "notification_type": "Urination Frequency",
-      "date_time": "2021-04-19T10:58:57.795Z",
+      "date_time": "2021-04-22T10:58:57.795Z",
       "account_id": 42,
       "account_name": "Kobby Greenberg",
       "resident_id": 25,
@@ -194,7 +194,7 @@
       },
       "person_id": 22,
       "extra_values": {
-        "base_unit": "hrs",
+        "base_unit": "times",
         "low_value": 2,
         "high_value": 2,
         "base_type": "computed",
@@ -246,14 +246,13 @@
         "end": "23:00"
       },
       "extra_values": {
-        "base_unit": "hrs",
+        "base_unit": "times",
         "base_type": "fix",
         "base_value": 0,
         "low_value": 0,
         "high_value": 0
       },
       "sensor_id": [
-        "sensor1",
         "fjy"
       ],
       "person_id": 22,

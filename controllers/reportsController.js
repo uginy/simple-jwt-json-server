@@ -18,12 +18,19 @@ class ReportsController {
 
   notifications = (req, res, next) => {
     const { date, person } = req.params;
-    console.log(date, person );
-    const notifications = databaseDB.notifications.filter((el) => {
-      const dateFormatted = DateTime.fromISO(el.date_time).toFormat("yyyy-MM-dd");
-      return dateFormatted === date && +el.resident_id === +person;
-    });
-    res.status(200).json(notifications);
+    try {
+      const notifications = databaseDB.notifications.filter((el) => {
+        const dateFormatted = DateTime.fromISO(el.date_time).toFormat("yyyy-MM-dd");
+        return dateFormatted === date && +el.resident_id === +person;
+      });
+      if (notifications) {
+        res.status(200).json(notifications);
+      } else {
+        next(ApiError.badRequest("No data with this query"));
+      }
+    } catch (error) {
+      next(ApiError.badRequest(error.message));
+    }
   };
 }
 

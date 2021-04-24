@@ -4,9 +4,9 @@ const jsonServer = require("json-server");
 const index = jsonServer.create();
 const router = jsonServer.router("./fixtures/database.json");
 const auth = require("./middleware/auth");
-const apiRouter = require('./routes/index')
+const apiRouter = require('./routes/index');
+const errorHandler = require('./middleware/errorHandlingMiddleware');
 const useSecure = false;
-const reportsMiddleware = require('./middleware/reportsMiddleware')
 
 index.use(express.json());
 index.use(jsonServer.defaults());
@@ -109,6 +109,7 @@ index.use(/^(?!\/auth).*$/, (req, res, next) => {
 });
 
 index.use(router);
+index.use(errorHandler);
 
 const port = process.env.PORT || 8090;
 index.listen(port, () => {
