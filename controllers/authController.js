@@ -8,13 +8,15 @@ class AuthController {
     console.log("login endpoint called; request body:");
     console.log(req.body);
     const { username, password } = req.body;
-    if (authMiddleware.isAuthenticated({ username, password }) === false) {
+    const isAuth = authMiddleware.isAuthenticated({ username, password });
+    if (isAuth === false) {
       next(ApiError.existsRequest("Incorrect username or password"));
       return;
     }
-    const access_token = authMiddleware.createToken({ username, password });
-    console.log("Access Token:" + access_token);
     const user = authMiddleware.userProfile({ username });
+    const access_token = authMiddleware.createToken({ username, password, role: user.role });
+    console.log("Access Token:" + access_token);
+   // const user = authMiddleware.userProfile({ username });
     res.status(200).json({
       access_token: access_token,
       expires: authMiddleware.expiresIn,
@@ -29,19 +31,15 @@ class AuthController {
     console.log("register endpoint called; request body:");
     console.log(req.body);
     const { username, password } = req.body;
-
-    if (authMiddleware.isAuthenticated({ username, password }) === true) {
-      const status = 401;
-      const message = "Username and Password already exist";
-      res.status(status).json({ status, message });
+    const isAuth = authMiddleware.isAuthenticated({ username, password });
+    if (isAuth === true) {
+      next(ApiError.existsRequest("Username and Password already exist"));
       return;
     }
 
     fs.readFile("./fixtures/users.json", (err, dataBuff) => {
       if (err) {
-        const status = 401;
-        const message = err;
-        res.status(status).json({ status, message });
+        next(ApiError.internal("Error reading DB"));
         return;
       }
       // Get current users data
@@ -55,13 +53,11 @@ class AuthController {
       fs.writeFile("./fixtures/users.json", JSON.stringify(data), (err, _) => {
         // WRITE
         if (err) {
-          const status = 401;
-          const message = err;
-          res.status(status).json({ status, message });
+          next(ApiError.internal("Error reading DB"));
           return;
         }
         // Create token for new user
-        const access_token = authMiddleware.createToken({ username, password });
+        const access_token = authMiddleware.createToken({ username, password, role: 'admin' });
         console.log("Access Token:" + access_token);
         res.status(200).json({ access_token, expires: authMiddleware.expiresIn, token_created: new Date(), username });
       });
