@@ -25,5 +25,9 @@
   },
   "devDependencies": {
     "@types/node": "^14.14.41"
+  },
+  "nodemonConfig": {
+    "ignore": ["fixtures/*"],
+    "delay": 500
   }
 }
