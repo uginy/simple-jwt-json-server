@@ -12,7 +12,7 @@ class CountriesController {
     res.status(200).json({ count: countries.length, data: countries });
   }
 
-  cities = (req, res, next) => {
+  cities(req, res, next) {
     const { country } = req.body;
     try {
       const findCountry = countriesDB.find((it) => it.country === country);

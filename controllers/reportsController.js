@@ -11,12 +11,12 @@ class ReportsController {
     res.status(200).json(result);
   }
 
-  reportsNew = (req, res, next) => {
+  reportsNew(req, res, next) {
     const result = reportsDB.filter(reportsMiddleware.search, req.body);
     res.status(200).json({ count: result.length, data: result });
-  };
+  }
 
-  notifications = (req, res, next) => {
+  notifications(req, res, next) {
     const { date, person } = req.params;
     try {
       const notifications = databaseDB.notifications.filter((el) => {
@@ -31,7 +31,7 @@ class ReportsController {
     } catch (error) {
       next(ApiError.badRequest(error.message));
     }
-  };
+  }
 }
 
 module.exports = new ReportsController();
