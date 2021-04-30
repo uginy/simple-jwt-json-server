@@ -1,0 +1,6 @@
+{
+    "serverPort": 8090,
+    "secret": "ASdasDAsda232344SFSDFDSFDSF",
+    "expiresIn": "24h",
+    "dbUrl": "mongodb+srv://ardname:kiev220976@cluster0.5vf6a.mongodb.net/tl?authSource=admin&replicaSet=atlas-g60x1m-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"
+}

@@ -1,15 +1,17 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const config = require("config");
 const jsonServer = require("json-server");
 const index = jsonServer.create();
 const router = jsonServer.router("./fixtures/database.json");
 const auth = require("./middleware/authMiddleware");
-const apiRouter = require('./routes/index');
-const errorHandler = require('./middleware/errorHandlingMiddleware');
+const apiRouter = require("./routes/index");
+const errorHandler = require("./middleware/errorHandlingMiddleware");
 const useSecure = false;
 
 index.use(express.json());
 index.use(jsonServer.defaults());
-index.use('/api', apiRouter)
+index.use("/api", apiRouter);
 index.use(errorHandler);
 
 index.use(/^(?!\/auth).*$/, (req, res, next) => {
@@ -44,7 +46,16 @@ index.use(/^(?!\/auth).*$/, (req, res, next) => {
 index.use(router);
 index.use(errorHandler);
 
-const port = process.env.PORT || 8090;
-index.listen(port, () => {
-  console.log("Run Auth API Server on port ", port);
-});
+const port = config.get("serverPort") || process.env.PORT || 8090;
+
+const start = async () => {
+  try {
+    mongoose.connect(config.get("dbUrl"), { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+    index.listen(port, () => {
+      console.log("Run Auth API Server on port ", port);
+    });
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+start();

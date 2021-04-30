@@ -5,17 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "startlocal": "node index.js",
     "dev": "nodemon json-server --watch ./fixtures/database.json --port 8090",
-    "start-auth": "nodemon index.js"
+    "start:dev": "nodemon index.js"
   },
   "author": "ME:)",
   "license": "ISC",
   "dependencies": {
     "babel-eslint": "^10.1.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "config": "^3.3.6",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "express-validator": "^6.10.1",
     "helmet": "^4.5.0",
     "json-server": "^0.14.2",
     "jsonwebtoken": "^8.1.0",
@@ -24,10 +26,13 @@
     "reverso-api": "^2.16.2"
   },
   "devDependencies": {
-    "@types/node": "^14.14.41"
+    "@types/node": "^14.14.41",
+    "mongoose": "^5.12.7"
   },
   "nodemonConfig": {
-    "ignore": ["fixtures/*"],
+    "ignore": [
+      "fixtures/*"
+    ],
     "delay": 500
   }
 }

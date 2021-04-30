@@ -1,5 +1,7 @@
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
+const config = require("config");
+const ApiError = require("../errors/apiErrors");
 
 const secret = "123456789";
 const expiresIn = "1h";
@@ -26,6 +28,63 @@ const userProfile = ({ username }) => {
   return userDb.users.find((user) => user.username === username) || null;
 };
 
+// new MiddleWare
+
+const generateAccessToken = (id, roles) => {
+  const payload = {
+    id,
+    roles,
+  };
+  return jwt.sign(payload, config.get("secret"), { expiresIn: config.get("expiresIn")});
+};
+
+const getUserRole = (req, res, next) => {
+  if (req.method === "OPTIONS") {
+    next();
+  }
+
+  try {
+    const token = req.headers.authorization?.split(" ")[1];
+    if (!token) {
+      return next(ApiError.forbidden("User is not authorized"));
+    }
+    const decodedData = jwt.verify(token, config.get("secret"));
+    req.user = decodedData;
+    next();
+  } catch (error) {
+    console.log(error);
+    return next(ApiError.forbidden("User is not authorized"));
+  }
+};
+
+const roleCheck = (roles) => {
+  return function (req, res, next) {
+    if (req.method === "OPTIONS") {
+      next();
+    }
+
+    try {
+      const token = req.headers.authorization?.split(" ")[1];
+      if (!token) {
+        return next(ApiError.forbidden("User is not authorized"));
+      }
+      const { roles: userRoles } = jwt.verify(token, config.get("secret"));
+      let hasRole = false;
+      userRoles.forEach((role) => {
+        if (roles.includes(role)) {
+          hasRole = true;
+        }
+      });
+      if (!hasRole) {
+        return next(ApiError.forbidden("User is not authorized"));
+      }
+      next();
+    } catch (error) {
+      console.log(error);
+      return next(ApiError.forbidden("User is not authorized"));
+    }
+  };
+};
 
 module.exports = {
   expiresIn,
@@ -33,4 +92,7 @@ module.exports = {
   verifyToken,
   isAuthenticated,
   userProfile,
+  generateAccessToken,
+  getUserRole,
+  roleCheck
 };

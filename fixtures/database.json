@@ -3,7 +3,7 @@
     {
       "id": "1",
       "user_id": 1,
-      "type": "activity",
+      "type": "technical",
       "rule_type": "Toilet Use",
       "notification_type": "Urination Frequency",
       "date_time": "2021-04-25T10:58:57.795Z",
@@ -214,11 +214,13 @@
       "frequency": "daily",
       "enabled": true,
       "extra_values": {
-        "base_unit": "hrs",
+        "base_unit": "percent",
         "low_value": 1,
         "high_value": 3,
         "base_type": "fix",
-        "base_value": 98
+        "base_value": 8,
+        "low_unit": "hrs",
+        "high_unit": "hrs"
       },
       "created_at": "2021-04-19T11:58:57.795Z",
       "updated_at": "2021-04-19T11:58:57.795Z"
