@@ -3,3 +3,4 @@ node_modules
 app-run.json
 package-lock.json
 /.vscode/*
+/config/*
