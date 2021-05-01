@@ -50,7 +50,12 @@ const port = config.get("serverPort") || process.env.PORT || 8090;
 
 const start = async () => {
   try {
-    mongoose.connect(config.get("dbUrl"), { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+    mongoose.connect(config.get("dbUrl"), { 
+      useNewUrlParser: true, 
+      useUnifiedTopology: true, 
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
     index.listen(port, () => {
       console.log("Run Auth API Server on port ", port);
     });
