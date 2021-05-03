@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon json-server --watch ./fixtures/database.json --port 8090",
     "start:dev": "nodemon index.js"
   },
   "author": "ME:)",
@@ -16,14 +15,17 @@
     "body-parser": "^1.19.0",
     "config": "^3.3.6",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.16.4",
+    "express-fileupload": "^1.2.1",
     "express-validator": "^6.10.1",
     "helmet": "^4.5.0",
     "json-server": "^0.16.3",
     "jsonwebtoken": "^8.1.0",
     "luxon": "^1.26.0",
     "morgan": "^1.9.1",
-    "reverso-api": "^2.16.2"
+    "reverso-api": "^2.16.2",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.41",

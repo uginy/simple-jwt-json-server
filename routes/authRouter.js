@@ -13,8 +13,6 @@ router.post(
   ],
   authController.registration
 );
-router.post("/loginOld", authController.loginOld);
-router.post("/registerOld", authController.registerOld);
 router.get("/users", authMiddleware.roleCheck(['admin']), authController.getUsers);
 
 module.exports = router;
