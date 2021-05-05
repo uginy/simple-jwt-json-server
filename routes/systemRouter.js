@@ -1,8 +1,8 @@
 const Router = require("express");
 const router = new Router();
-const componentsController = require("../controllers/componentsController");
+const systemController = require("../controllers/systemController");
 
-router.post("/settings", componentsController.setSettings);
-router.get("/settings", componentsController.getSettings);
+router.post("/settings", systemController.setSettings);
+router.get("/settings", systemController.getSettings);
 
 module.exports = router;
