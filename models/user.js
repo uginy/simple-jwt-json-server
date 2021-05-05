@@ -5,6 +5,7 @@ const User = new Schema({
   password: { type: String, required: true },
   roles: [{ type: String, ref: "Role" }],
   language: { type: String, required: false, default: "en" },
+  components: { type: String, ref: "Component" }
 });
 
 module.exports = model("User", User);

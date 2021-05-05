@@ -1,5 +1,5 @@
-const User = require("../models/User");
-const Role = require("../models/Role");
+const User = require("../models/user");
+const Role = require("../models/role");
 const ApiError = require("../errors/apiErrors");
 const AuthMiddleware = require("../middleware/authMiddleware")
 const bcrypt = require("bcryptjs");
@@ -59,6 +59,16 @@ class AuthController {
   }
 
   async getUsers(req, res, next) {
+    try {
+      const users = await User.find();
+      res.json(users)
+    } catch (error) {
+      console.log(e);
+      next(ApiError.notFound("Get users error"));
+    }
+  }
+
+  async getUiControls(req, res, next) {
     try {
       const users = await User.find();
       res.json(users)

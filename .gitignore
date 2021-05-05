@@ -5,3 +5,4 @@ package-lock.json
 /.vscode/*
 /config/*
 config/default.json
+/static/openapi.yaml

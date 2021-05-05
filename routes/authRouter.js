@@ -14,5 +14,6 @@ router.post(
   authController.registration
 );
 router.get("/users", authMiddleware.roleCheck(['admin']), authController.getUsers);
+router.get("/uiControls", authMiddleware.roleCheck(['admin']), authController.getUiControls);
 
 module.exports = router;

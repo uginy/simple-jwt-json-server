@@ -1,14 +1,14 @@
 {
   "apps" : [
     {
-      "name"       : "TL fake server",
+      "name"       : "Ada fake server",
       "script"     : "npm",
       "args"       : "start",
       "exec_mode"  : "fork",
       "watch"      : false,
       "env": {
         "NODE_ENV": "production",
-        "PORT": 8090
+        "PORT": 8060
       }
     }]
 }
