@@ -4,5 +4,5 @@ app-run.json
 package-lock.json
 /.vscode/*
 /config/*
-config/default.json
+/config/default.json
 /static/openapi.yaml
