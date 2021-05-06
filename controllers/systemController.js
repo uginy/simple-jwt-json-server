@@ -42,6 +42,18 @@ class SystemController {
       next(ApiError.notFound("Get users error"));
     }
   }
+
+  async getDetailedLog(req, res, next) {
+    try {
+      return res.status(201).json(
+        {
+          "message": "Request For Detailed Log Executed"
+        });
+    } catch (error) {
+      console.log(e);
+      next(ApiError.notFound("Get users error"));
+    }
+  }
 }
 
 module.exports = new SystemController();
