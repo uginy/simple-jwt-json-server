@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const config = require("config");
 const fileUpload = require('express-fileupload')
 const apiRouter = require("./routes/index");
@@ -20,12 +19,6 @@ const port = config.get("serverPort") || 8060;
 
 const start = async () => {
   try {
-    await mongoose.connect(config.get("dbUrl"), { 
-      useNewUrlParser: true, 
-      useUnifiedTopology: true, 
-      useCreateIndex: true,
-      useFindAndModify: false,
-    });
     app.listen(port, () => {
       console.log("Mock Server started on port ", port);
     });

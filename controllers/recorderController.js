@@ -14,11 +14,44 @@ class RecorderController {
   }
 
   async getProfile(req, res, next) {
-    const payload = req.body
-    const { command } = payload
+  
+    const response = {
+      "config_name": "string",
+      "config_desc": "string",
+      "extensions": {
+        "camera_control": true,
+        "detector": true,
+        "capture_stream": {
+          "enabled": true,
+          "depth": "14bit + 8bit",
+          "format": "TAR",
+          "raw_frame_format": "RAW",
+          "preview_frame_format": "PNG",
+          "raw_fps": 30,
+          "preview_fps": 30,
+          "stop_on_fail": true,
+          "csv_headers": "index,x,y,w,h,rank,classid,track_id,range,position_x,position_y,position_z,trajectory_x,trajectory_y,trajectory_z,speed"
+        },
+        "preview": true,
+        "smart_shutter": true,
+        "monitor": true,
+        "v2i": true,
+        "geometric_calibration": true
+      },
+      "watchdog": {
+        "watchtime": 0,
+        "disk_space_warn_mb": 0,
+        "disk_space_abort_mb": 0,
+        "notify_user": 0,
+        "min_minutes_to_save": 0,
+        "min_scene_num": 0,
+        "min_nox_exp": 0
+      }
+    }
+
     try {
       return res.status(201).json(
-        { message: 'Command ' + command + ' executed succssfuly', data: pData });
+        response );
     } catch (error) {
       console.log(e);
       next(ApiError.notFound("Get users error"));

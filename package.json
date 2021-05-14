@@ -21,7 +21,6 @@
     "express-fileupload": "^1.2.1",
     "express-validator": "^6.10.1",
     "helmet": "^4.5.0",
-    "json-server": "^0.16.3",
     "jsonwebtoken": "^8.1.0",
     "luxon": "^1.26.0",
     "morgan": "^1.9.1",
@@ -29,8 +28,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/node": "^14.14.41",
-    "mongoose": "^5.12.7"
+    "@types/node": "^14.14.41"
   },
   "nodemonConfig": {
     "ignore": [
