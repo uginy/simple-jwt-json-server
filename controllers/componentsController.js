@@ -10,7 +10,7 @@ class ComponentsController {
           'v2i', 
           'system', 
           'smart_shutter', 
-          'analytics'
+          'web_server'
         ]);
     } catch (error) {
       console.log(e);

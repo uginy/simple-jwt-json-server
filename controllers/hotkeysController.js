@@ -4,8 +4,8 @@ class HotkeysController {
   async hotkeys(req, res, next) {
     const { hotkey } = req.body; 
     try {
-      return res.status(200).json(
-       {message: 'Hotkey ' + hotkey.toUpperCase() + ' received', data: { hotkey }});
+      console.log(hotkey)
+      return res.status(201).json();
     } catch (error) {
       console.log(error);
       next(ApiError.notFound("Get hotkeys error"));
