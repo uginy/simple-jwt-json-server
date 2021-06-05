@@ -13,10 +13,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, "static")));
 app.use(fileUpload({}));
-app.use("/ada-api", apiRouter);
+app.use("/api", apiRouter);
 app.use(errorHandler);
 
-const port = config.get("serverPort") || 8060;
+const port = config.get("serverPort") || 80;
 
 const start = async () => {
   try {
