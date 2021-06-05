@@ -1,4 +1,4 @@
-const ApiError = require("../errors/apiErrors");
+import ApiError from "../errors/apiErrors.js";
 
 var defaultFormState = {
   myself: {
@@ -70,4 +70,4 @@ class V2iController {
   }
 }
 
-module.exports = new V2iController();
+export default new V2iController();

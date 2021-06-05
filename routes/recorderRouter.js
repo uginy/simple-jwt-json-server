@@ -1,9 +1,9 @@
-const Router = require("express");
+import Router from "express";
 const router = new Router();
-const recorderController = require("../controllers/recorderController");
+import recorderController from "../controllers/recorderController.js";
 
 router.post("/start_stop", recorderController.startStop);
 router.post("/profile", Router.text(), recorderController.updateProfile);
 router.get("/profile", recorderController.getProfile);
 
-module.exports = router;
+export default router;

@@ -1,4 +1,4 @@
-const ApiError = require("../errors/apiErrors");
+import ApiError from "../errors/apiErrors.js";
 
 var markingType = "Default";
 var formState = {
@@ -86,4 +86,4 @@ class RecorderController {
   }
 }
 
-module.exports = new RecorderController();
+export default new RecorderController();

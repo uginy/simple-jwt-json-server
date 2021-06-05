@@ -1,9 +1,9 @@
-const Router = require("express");
+import Router from "express";
 const router = new Router();
-const smartShutterController = require("../controllers/smartShutterController");
+import smartShutterController from "../controllers/smartShutterController.js";
 
 router.post("/settings", Router.text(), smartShutterController.setSettings);
 router.post("/manual", smartShutterController.setManual);
 router.get("/settings", Router.text(), smartShutterController.getSettings);
 
-module.exports = router;
+export default router;

@@ -1,10 +1,10 @@
-const Router = require("express");
+import Router from "express";
 const router = new Router();
-const systemController = require("../controllers/systemController");
+import systemController from "../controllers/systemController.js";
 
 router.post("/settings", systemController.setSettings);
 router.get("/settings", systemController.getSettings);
 router.get("/status", systemController.getStatus);
 router.get("/detailed_log", systemController.getDetailedLog);
 
-module.exports = router;
+export default router;

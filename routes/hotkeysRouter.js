@@ -1,7 +1,7 @@
-const Router = require("express");
+import Router from "express";
 const router = new Router();
-const hotkeysController = require("../controllers/hotkeysController");
+import hotkeysController from "../controllers/hotkeysController.js";
 
 router.post("/hotkeys", Router.text(), hotkeysController.hotkeys);
 
-module.exports = router;
+export default router;

@@ -1,4 +1,4 @@
-const ApiError = require("../errors/apiErrors");
+import ApiError from "../errors/apiErrors.js";
 
 var settings = {
   dhcp_timeout: 10,
@@ -54,7 +54,7 @@ class SystemController {
         severity: "labori",
         response: ["cupidatat mollit laboris", "in cillum"],
       },
-    }
+    };
     try {
       return res.status(200).json(status);
     } catch (error) {
@@ -64,4 +64,4 @@ class SystemController {
   }
 }
 
-module.exports = new SystemController();
+export default new SystemController();

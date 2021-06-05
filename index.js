@@ -1,17 +1,18 @@
-const express = require("express");
-const config = require("config");
-const fileUpload = require('express-fileupload')
-const apiRouter = require("./routes/index");
-const errorHandler = require("./middleware/errorHandlingMiddleware");
-const path = require('path');
-const cors = require('cors')
+import express from "express";
+import config from "config";
+import fileUpload from "express-fileupload";
+import apiRouter from "./routes/index.js";
+import errorHandler from "./middleware/errorHandlingMiddleware.js";
+import path from "path";
+import cors from "cors";
 
 const app = new express();
+const __dirname = path.resolve(path.dirname(''));
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, 'static')))
-app.use(fileUpload({}))
+app.use(express.static(path.resolve(__dirname, "static")));
+app.use(fileUpload({}));
 app.use("/ada-api", apiRouter);
 app.use(errorHandler);
 

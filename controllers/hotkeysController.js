@@ -1,4 +1,4 @@
-const ApiError = require("../errors/apiErrors");
+import ApiError from "../errors/apiErrors.js";
 
 class HotkeysController {
   async hotkeys(req, res, next) {
@@ -13,4 +13,4 @@ class HotkeysController {
   }
 }
 
-module.exports = new HotkeysController();
+export default new HotkeysController();

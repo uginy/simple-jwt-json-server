@@ -1,4 +1,4 @@
-const ApiError = require("../errors/apiErrors");
+import ApiError from "../errors/apiErrors.js";
 
 var formState = "Both"
 
@@ -36,4 +36,4 @@ class SmartShutterController {
   }
 }
 
-module.exports = new SmartShutterController();
+export default new SmartShutterController();
