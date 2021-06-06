@@ -5,8 +5,8 @@ var settings = {
   fallback_ip: "192.168.1.5",
   fallback_netmask: 24,
   fallback_gw: "192.168.1.2",
-  date_time: new Date().toISOString(),
-  timezone: "3",
+  date_time: new Date().toString(),
+  timezone: 6,
   ntp_conf: "Conf1",
   nvpmodel: 3,
 };
@@ -16,7 +16,7 @@ class SystemController {
     try {
       if (payload) {
         settings = { ...settings, ...payload.settings };
-        console.log(settings);
+        console.log("payload", payload);
       }
       return res.status(201).json();
     } catch (error) {

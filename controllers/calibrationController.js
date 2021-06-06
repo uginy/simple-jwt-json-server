@@ -27,14 +27,12 @@ var formState = {
   direction_points: "string",
   roi_points: "string",
   extrinsic_output: "string",
-}
+};
 
 class RecorderController {
-  
   async setPointType(req, res, next) {
-
     const PointType = req.body;
-    console.log('PT', req.body)
+    console.log("PT", req.body);
     try {
       formState.point_type = PointType;
       console.log(formState);
@@ -46,10 +44,14 @@ class RecorderController {
   }
 
   async setPointLocation(req, res, next) {
-
     const PointLocation = req.body;
     try {
-      formState.points.push(PointLocation);
+      const findedIndex = formState.points.findIndex((el) => el.name === PointLocation.name);
+      if (findedIndex !== -1) {
+        formState.points[findedIndex] = PointLocation;
+      } else {
+        formState.points.push(PointLocation);
+      }
       console.log(formState);
       return res.status(201).json();
     } catch (error) {
@@ -59,12 +61,11 @@ class RecorderController {
   }
 
   async setMarkingType(req, res, next) {
-
     const Marking = req.body;
     try {
-      markingType = Marking
-      if(Marking === 'Clear') {
-        formState.points = []
+      markingType = Marking;
+      if (Marking === "Clear") {
+        formState.points = [];
       }
       console.log(formState);
       return res.status(201).json(markingType);
@@ -77,7 +78,7 @@ class RecorderController {
   async getState(req, res, next) {
     const response = formState;
     try {
-      console.log(formState);
+      // console.log(formState);
       return res.status(200).json(response);
     } catch (error) {
       console.log(error);
