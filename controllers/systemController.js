@@ -25,6 +25,17 @@ class SystemController {
     }
   }
 
+  async sendCommand(req, res, next) {
+    const query = req.query;
+    try {
+      console.log(query.query);
+      return res.status(201).json();
+    } catch (error) {
+      console.log(error);
+      next(ApiError.notFound("Get users error"));
+    }
+  }
+
   async getSettings(req, res, next) {
     try {
       return res.status(201).json(settings);
@@ -50,9 +61,9 @@ class SystemController {
       FPS: Math.floor(Math.random() * 5 + 30),
       Temperature: Math.floor(Math.random() * 5 + 35),
       msg: {
-        msg: "aliquip qui ipsum",
-        severity: "labori",
-        response: ["cupidatat mollit laboris", "in cillum"],
+        msg: "message",
+        severity: "severity",
+        response: ["Ok", "Reboot"],
       },
     };
     try {

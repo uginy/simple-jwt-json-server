@@ -11,7 +11,7 @@ var formState = {
       name: "P01",
       distance: 30,
       comment: "Comment here",
-      color: "#3FC6D4",
+      color: "3FC6D4",
     },
     {
       width: 11,
@@ -19,7 +19,7 @@ var formState = {
       name: "P11",
       distance: 37,
       comment: "Comment here",
-      color: "#D4C157",
+      color: "D4C157",
     },
   ],
   intrinsic_file: "string",
@@ -50,6 +50,7 @@ class RecorderController {
       if (findedIndex !== -1) {
         formState.points[findedIndex] = PointLocation;
       } else {
+        console.log(PointLocation);
         formState.points.push(PointLocation);
       }
       console.log(formState);
@@ -78,7 +79,16 @@ class RecorderController {
   async getState(req, res, next) {
     const response = formState;
     try {
-      // console.log(formState);
+      console.log(formState);
+      response.extrinsic_output = `asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
+      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
+      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
+      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
+      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
+      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
+      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
+      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
+      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd`;
       return res.status(200).json(response);
     } catch (error) {
       console.log(error);
