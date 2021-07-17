@@ -27,6 +27,7 @@ var formState = {
   direction_points: "string",
   roi_points: "string",
   extrinsic_output: "string",
+  marking: false,
 };
 
 class RecorderController {
@@ -51,6 +52,7 @@ class RecorderController {
         formState.points[findedIndex] = PointLocation;
       } else {
         console.log(PointLocation);
+
         formState.points.push(PointLocation);
       }
       console.log(formState);
@@ -61,10 +63,34 @@ class RecorderController {
     }
   }
 
+  async getPointLocation(req, res, next) {
+    try {
+      console.log(req.query);
+      const preview = {
+        width: 640,
+        height: 480,
+      };
+
+      return res.status(201).json({
+        width: (+req.query.width * (200 / preview.width) - 99).toString(),
+        height: (250 - +req.query.height * (250 / preview.height)).toString(),
+      });
+    } catch (error) {
+      console.log(error);
+      next(ApiError.notFound("setPointLocation error"));
+    }
+  }
+
   async setMarkingType(req, res, next) {
     const Marking = req.body;
     try {
       markingType = Marking;
+      if (Marking === "Start") {
+        formState.marking = true;
+      }
+      if (Marking === "Stop") {
+        formState.marking = false;
+      }
       if (Marking === "Clear") {
         formState.points = [];
       }
@@ -80,15 +106,7 @@ class RecorderController {
     const response = formState;
     try {
       console.log(formState);
-      response.extrinsic_output = `asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
-      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
-      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
-      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
-      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
-      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
-      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
-      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd
-      asdasdasd ${Math.random() * 10 + 2345345345} asdasdasd`;
+      response.extrinsic_output = `asdasdasd`;
       return res.status(200).json(response);
     } catch (error) {
       console.log(error);

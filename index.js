@@ -7,12 +7,18 @@ import path from "path";
 import cors from "cors";
 
 const app = new express();
-const __dirname = path.resolve(path.dirname(''));
+const __dirname = path.resolve(path.dirname(""));
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, "static")));
-app.use(fileUpload({}));
+app.use(
+  fileUpload({
+    limits: {
+      fileSize: 256000000, //1mb
+    },
+  })
+);
 app.use("/api", apiRouter);
 app.use(errorHandler);
 

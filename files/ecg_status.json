@@ -1,0 +1,165 @@
+{
+  "Board_connect_event": {
+    "ecg_bs": { "IsConnected": true },
+    "ecg_ic": { "IsConnected": true },
+    "eit1": { "IsConnected": true },
+    "eit2": { "IsConnected": true },
+    "eit3": { "IsConnected": true },
+    "eit4": { "IsConnected": true },
+    "eit5": { "IsConnected": true },
+    "eit6": { "IsConnected": true },
+    "eit7": { "IsConnected": true },
+    "eit8": { "IsConnected": true }
+  },
+  "DC_Leakage_event ": { "DCleakage": { "NotDetected": true } },
+  "Hardware_failure_event": {
+    "ecg_som": {
+      "Fan1": {
+        "IsValid": true,
+        "eventType": 204,
+        "value": 2580.0
+      },
+      "Fan2": {
+        "IsValid": true,
+        "eventType": 204,
+        "value": 2370.0
+      },
+      "Fan3": {
+        "IsValid": true,
+        "eventType": 204,
+        "value": 2625.0
+      },
+      "Fan4": {
+        "IsValid": true,
+        "eventType": 204,
+        "value": 3135.0
+      },
+      "FanSom": {
+        "IsValid": true,
+        "eventType": 204,
+        "value": 9030.0
+      },
+      "PowerManagerClk": {
+        "IsValid": true,
+        "eventType": 204,
+        "value": 2048.0
+      }
+    }
+  },
+  "Safety_Failure": {
+    "ecg_som": {
+      "DCleakage": {
+        "IsValid": true,
+        "eventType": 209,
+        "value": 0
+      }
+    }
+  },
+  "Temperature_failure_event": {
+    "ecg0": {
+      "temperature1": {
+        "IsValid": true,
+        "eventType": 203,
+        "value": 34.0
+      },
+      "temperature2": {
+        "IsValid": true,
+        "eventType": 203,
+        "value": 30.0
+      },
+      "temperature3": {
+        "IsValid": true,
+        "eventType": 203,
+        "value": 48.0
+      }
+    },
+    "ecg1": {
+      "temperature1": {
+        "IsValid": true,
+        "eventType": 203,
+        "value": 35.0
+      },
+      "temperature2": {
+        "IsValid": true,
+        "eventType": 203,
+        "value": 31.0
+      },
+      "temperature3": {
+        "IsValid": true,
+        "eventType": 203,
+        "value": 44.0
+      }
+    },
+    "motherboard": {
+      "Temp1": {
+        "IsValid": true,
+        "eventType": 203,
+        "value": 45.0
+      },
+      "Temp2": {
+        "IsValid": true,
+        "eventType": 203,
+        "value": 45.0
+      },
+      "Temp3": {
+        "IsValid": true,
+        "eventType": 203,
+        "value": 45.0
+      }
+    }
+  },
+  "Voltage_failure_event": {
+    "ecg0": {
+      "powerMonitorA": {
+        "IsValid": true,
+        "eventType": 207,
+        "value": 1.644688606262207
+      },
+      "refVolatage2_5": {
+        "IsValid": true,
+        "eventType": 207,
+        "value": 2.492063522338867
+      }
+    },
+    "ecg1": {
+      "powerMonitorA": {
+        "IsValid": true,
+        "eventType": 207,
+        "value": 1.6593406200408936
+      },
+      "refVolatage2_5": {
+        "IsValid": true,
+        "eventType": 207,
+        "value": 2.492673873901367
+      }
+    },
+    "motherboard": {
+      "PowerMonitor_1_15PRI": {
+        "IsValid": true,
+        "eventType": 207,
+        "value": 0.5860806107521057
+      },
+      "PowerMonitor_1_5PRI": {
+        "IsValid": true,
+        "eventType": 207,
+        "value": 0.7527472376823425
+      },
+      "PowerMonitor_1_8PRI": {
+        "IsValid": true,
+        "eventType": 207,
+        "value": 0.9865689873695374
+      },
+      "PowerMonitor_3TCXO_max": {
+        "IsValid": true,
+        "eventType": 207,
+        "value": 1.4963369369506836
+      },
+      "PowerMonitor_3_3PRI": {
+        "IsValid": true,
+        "eventType": 207,
+        "value": 1.6428571939468384
+      }
+    }
+  },
+  "bit_status": true
+}
