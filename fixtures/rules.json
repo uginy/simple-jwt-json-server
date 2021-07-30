@@ -5,11 +5,11 @@
         "options": [
             {
                 "id": 0,
-                "name": "Urination Frequesncy"
+                "name": "Urination Frequency"
             },
             {
                 "id": 1,
-                "name": "Defectaion Frequesncy"
+                "name": "Defecation Frequency"
             },
             {
                 "id": 2,
