@@ -1,0 +1,43 @@
+version: "3"
+services:
+  proxy:
+    image: bitnami/nginx
+    container_name: proxy
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      PROXY_HOST: localhost
+    depends_on:
+      - frontend
+      - mock_server
+    volumes:
+      - ./smart-camera/frontend/out:/app/out
+      - ./nginx/my_server_block.conf:/opt/bitnami/nginx/conf/server_blocks/my_server_block.conf:ro
+    networks:
+      - web
+  frontend:
+    build:
+      context: smart-camera/frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    depends_on:
+      - mock_server
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./smart-camera/frontend:/app"
+      - "/app/node_modules"
+      - "/app/.next"
+    networks:
+      - web
+  mock_server:
+    build:
+      context: mock-server
+    container_name: mock_server
+    ports:
+      - "8010:8010"
+    networks:
+      - web
+networks:
+  web:
