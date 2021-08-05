@@ -2,10 +2,10 @@ version: "3"
 services:
   trend_server:
     build:
-      context: trend_server
+      context: .
     container_name: trend_server
     ports:
-      - "8080:8080"
+      - "8090:8090"
     networks:
       - trend
 networks:
