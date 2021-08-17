@@ -15,6 +15,8 @@
         "toilet1",
         "toilet2"
       ],
+      "time_start": "10:05",
+      "time_end": "11:20",
       "resident_name": "Maria Kessev",
       "notes": "asdasdwwwww1111",
       "description": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 ",
@@ -42,6 +44,8 @@
       "sensor_id": [
         "toilet1"
       ],
+      "time_start": "10:30",
+      "time_end": "11:20",
       "resident_name": "Maria Kessev",
       "notes": "werwerwer",
       "description": "2222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 22222222 2 2 2 2",
@@ -71,6 +75,8 @@
         "Bed1",
         "Bed2"
       ],
+      "time_start": "10:30",
+      "time_end": "11:20",
       "notes": "asdasd",
       "description": "33333 3 33333333333 3 33333333333 3 33333333333 3 33333333333 3 33333333333 3 333333",
       "status": "open",
@@ -98,6 +104,8 @@
         "toilet1",
         "toilet2"
       ],
+      "time_start": "10:30",
+      "time_end": "11:20",
       "notes": "asdasddgdfgdfgdfgfghfghfg",
       "description": "4444444 44444444444 44444444444 44444444444 44444444444 4444",
       "status": "closed",
@@ -125,6 +133,8 @@
         "toilet1",
         "toilet2"
       ],
+      "time_start": "10:30",
+      "time_end": "11:20",
       "resident_name": "Abraham2 Linkoln",
       "notes": "asdasdwwwww1111",
       "description": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 ",
@@ -153,6 +163,8 @@
         "toilet1",
         "toilet2"
       ],
+      "time_start": "10:30",
+      "time_end": "11:20",
       "resident_name": "Abraham2 Linkoln",
       "notes": "asdasdwwwww1111",
       "description": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 ",
@@ -181,6 +193,8 @@
         "toilet1",
         "toilet2"
       ],
+      "time_start": "10:30",
+      "time_end": "11:20",
       "resident_name": "Abraham2 Linkoln",
       "notes": "asdasdwwwww1111",
       "description": "11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 ",

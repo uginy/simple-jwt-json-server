@@ -8,5 +8,11 @@ services:
       - "8090:8090"
     networks:
       - trend
+    volumes:
+      - fixtures:/usr/src/app/fixtures
 networks:
   trend:
+
+volumes:
+  fixtures:
+    external: true
