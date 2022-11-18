@@ -13,29 +13,29 @@
   "dependencies": {
     "babel-eslint": "^10.1.0",
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "config": "^3.3.6",
+    "body-parser": "^1.20.0",
+    "config": "^3.3.8",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.16.4",
-    "express-fileupload": "^1.2.1",
-    "express-validator": "^6.10.1",
-    "helmet": "^4.5.0",
-    "jsonwebtoken": "^8.1.0",
-    "luxon": "^1.26.0",
-    "morgan": "^1.9.1",
-    "react-hook-form": "^7.29.0",
-    "reverso-api": "^2.16.2",
-    "uuid": "^8.3.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-validator": "^6.14.2",
+    "helmet": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "luxon": "^3.1.0",
+    "morgan": "^1.10.0",
+    "react-hook-form": "^7.39.4",
+    "reverso-api": "^2.22.1",
+    "uuid": "^9.0.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@types/node": "^14.14.41"
+    "@types/node": "^18.11.9"
   },
   "nodemonConfig": {
     "ignore": [
       "fixtures/*"
     ],
-    "delay": 500
+    "delay": 0
   }
 }

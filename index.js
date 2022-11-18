@@ -33,4 +33,4 @@ const start = async () => {
     console.log("Error starting server", error);
   }
 };
-start();
+await start();
