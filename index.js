@@ -11,7 +11,7 @@ const __dirname = path.resolve(path.dirname(""));
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, "static")));
+app.use('/api', express.static(path.resolve(__dirname, "static")));
 app.use(
   fileUpload({
     limits: {
