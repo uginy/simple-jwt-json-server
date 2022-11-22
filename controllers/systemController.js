@@ -14,7 +14,6 @@ var settings = {
 var status = {
   FPS: Math.floor(Math.random() * 5 + 30),
   RecordingTime: 0,
-  SmartShutterObst: Math.floor(Math.random() * 5 + 35),
   Temperature: Math.floor(Math.random() * 5 + 35),
 };
 class SystemController {
@@ -110,11 +109,9 @@ class SystemController {
           response: ["Ok", "Restart", "Reboot"],
         };
       }
-      (status.UpTime = Date.now()),
-        (status.FPS = Math.floor(Math.random() * 5 + 30)),
-        (status.RecordingTime = 0),
-        (status.Temperature = Math.floor(Math.random() * 5 + 35)),
-        (status.RecordingTime = new Date().getSeconds());
+      status.FPS = Math.floor(Math.random() * 5 + 135);
+      status.Temperature = Math.floor(Math.random() * 5 + 135);
+      status.RecordingTime = new Date().getSeconds();
       return res.status(200).json(status);
     } catch (error) {
       console.log(error);
