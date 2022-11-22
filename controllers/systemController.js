@@ -12,7 +12,6 @@ var settings = {
 };
 
 var status = {
-  UpTime: Date.now(),
   FPS: Math.floor(Math.random() * 5 + 30),
   RecordingTime: 0,
   SmartShutterObst: Math.floor(Math.random() * 5 + 35),

@@ -1,3 +1,4 @@
 {
-    "serverPort": 8010
+    "serverPort1": 8010,
+    "serverPort2": 8020
 }
