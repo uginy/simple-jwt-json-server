@@ -5,6 +5,7 @@ import systemController from "../controllers/systemController.js";
 router.post("/settings", systemController.setSettings);
 router.get("/settings", systemController.getSettings);
 router.get("/status", systemController.getStatus);
+router.get("/about", systemController.getAbout);
 router.post("/status", systemController.sendCommand);
 router.post("/detailed_logs", systemController.requestDetailedLog);
 router.get("/detailed_logs", systemController.getDetailedLog);

@@ -12,7 +12,7 @@ const app = new express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/api', express.static(path.resolve(__dirname, "static")));
+app.use('/system', express.static(path.resolve(__dirname, "static")));
 app.use(
   fileUpload({
     limits: {
@@ -20,7 +20,7 @@ app.use(
     },
   })
 );
-app.use("/api", apiRouter);
+app.use("/system", apiRouter);
 app.use(errorHandler);
 
 const port = config.get("serverPort") || 80;
