@@ -1,11 +1,10 @@
 import ApiError from "../errors/apiErrors.js";
 
-var formState = { toggle: false }
+var formState = { Obstacles: false }
 
-class StaticShutterController {
+class DetectorController {
   async getSettings(req, res, next) {
     try {
-      // console.log(formState);
       return res.status(200).json(formState);
     } catch (error) {
       console.log(error);
@@ -15,7 +14,6 @@ class StaticShutterController {
 
   async setSettings(req, res, next) {
     const StaticShutter = req.body;
-    // console.log(req.body);
     try {
       formState = StaticShutter;
       return res.status(201).json();
@@ -26,4 +24,4 @@ class StaticShutterController {
   }
 }
 
-export default new StaticShutterController();
+export default new DetectorController();

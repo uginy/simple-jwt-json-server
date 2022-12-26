@@ -1,11 +1,14 @@
 import ApiError from "../errors/apiErrors.js";
 
-var formState = "Both"
+var formState = {
+  "shutterMode": "periodic",
+  "autoHeater": true,
+  "selfTestOnBoot": false
+}
 
 class SmartShutterController {
   async getSettings(req, res, next) {
     try {
-      console.log(formState);
       return res.status(200).json(formState);
     } catch (error) {
       console.log(error);
@@ -15,7 +18,7 @@ class SmartShutterController {
 
   async setSettings(req, res, next) {
     const SmartShutter = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     try {
       formState = SmartShutter;
       return res.status(201).json();
@@ -27,7 +30,7 @@ class SmartShutterController {
 
   async setManual(req, res, next) {
     try {
-      console.log("Manual", formState);
+      // console.log("Manual", formState);
       return res.status(201).json(formState);
     } catch (error) {
       console.log(error);
