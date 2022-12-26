@@ -6,7 +6,7 @@ var formProfile = {
   config_desc: "string",
   extensions: {
     camera_control: true,
-    detector: true,
+    detector: false,
     capture_stream: {
       enabled: true,
       depth: "14bit + 8bit",
@@ -46,7 +46,7 @@ var recordingState = {
 class RecorderController {
   async getRecordingState(req, res, next) {
     try {
-      console.log(recordingState);
+      // console.log(recordingState);
       recordingState.fps = Math.random() * 10 + 30;
       recordingState.free_memory = Math.random() * 10 + 300;
       recordingState.time_left = Math.random() * 5 + 30;
@@ -62,7 +62,7 @@ class RecorderController {
       setTimeout(() => {
         recordingState.is_recording = !recordingState.is_recording;
       }, 2000);
-      console.log(recordingState);
+      // console.log(recordingState);
       return res.status(201).json();
     } catch (error) {
       console.log(e);
@@ -81,12 +81,13 @@ class RecorderController {
 
   async updateProfile(req, res, next) {
     const body = req.body;
-    console.log("Update Profile Body", req.body);
+    // console.log("Update Profile Body", req.body);
     try {
       if (body) {
+        formProfile.config_name = body
         mode = body;
       }
-      console.log(mode);
+      // console.log(mode);
       return res.status(201).json();
     } catch (error) {
       console.log(e);

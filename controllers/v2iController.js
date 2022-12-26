@@ -45,7 +45,7 @@ var formState = {
 class V2iController {
   async getSettings(req, res, next) {
     try {
-      console.log(formState);
+      // console.log(formState);
       return res.status(200).json(formState);
     } catch (error) {
       console.log(error);
@@ -61,7 +61,7 @@ class V2iController {
       } else {
         formState = defaultFormState
       }
-      console.log(formState);
+      // console.log(formState);
       return res.status(200).json(formState);
     } catch (error) {
       console.log(error);

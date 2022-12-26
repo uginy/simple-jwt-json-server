@@ -12,10 +12,10 @@ class ComponentsController {
   async getAbout(req, res, next) {
     try {
       return res.status(200).json({
-        Nox: "string",
-        Viper: "string",
-        SDK: "string",
-        CameraId: "string",
+        Nox: "1.1",
+        Viper: "1.1",
+        SDK: "1.1",
+        CameraId: "1.1",
       });
     } catch (error) {
       console.log(e);

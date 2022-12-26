@@ -15,14 +15,16 @@ var status = {
   FPS: Math.floor(Math.random() * 5 + 30),
   RecordingTime: 0,
   Temperature: Math.floor(Math.random() * 5 + 35),
+  msg: null
 };
+
 class SystemController {
   async setSettings(req, res, next) {
     const payload = req.body;
     try {
       if (payload) {
-        settings = { ...settings, ...payload.settings };
-        console.log("payload", payload);
+        settings = {...settings, ...payload.settings};
+        // console.log("payload", payload);
       }
       return res.status(201).json();
     } catch (error) {
@@ -34,7 +36,7 @@ class SystemController {
   async sendCommand(req, res, next) {
     const query = req.query;
     try {
-      console.log(query.query);
+      // console.log(query.query);
       if (query) {
         status.msg = null;
       }
@@ -56,7 +58,9 @@ class SystemController {
 
   async getDetailedLog(req, res, next) {
     try {
-      const file = `./files/ecg_status.json`;
+      const file = `./files/application.7z`;
+      res.setHeader('Content-Disposition', 'attachment; filename=application.7z');
+      res.setHeader('Content-Type', 'application/x-7z-compressed');
       res.setHeader("Access-Control-Expose-Headers", "*");
       return res.download(file);
     } catch (error) {
@@ -100,15 +104,6 @@ class SystemController {
 
   async getStatus(req, res, next) {
     try {
-      const timeRandom = new Date().getSeconds();
-      if (timeRandom % 5 === 0 && false) {
-        console.log(timeRandom);
-        status.msg = {
-          msg: "message asd asd asd asd asda da dasd asd asdas dasd asd asd asdas dasd asd asdasd asd asdas",
-          severity: "severity",
-          response: ["Ok", "Restart", "Reboot"],
-        };
-      }
       status.FPS = Math.floor(Math.random() * 5 + 135);
       status.Temperature = Math.floor(Math.random() * 5 + 135);
       status.RecordingTime = new Date().getSeconds();
@@ -116,6 +111,18 @@ class SystemController {
     } catch (error) {
       console.log(error);
       next(ApiError.notFound("Get status error"));
+    }
+  }
+
+  async getAbout(req, res, next) {
+    try {
+      return res.status(200).json({
+        System: "1.1",
+        Platform: "1.1"
+      });
+    } catch (error) {
+      console.log(e);
+      next(ApiError.notFound("Get about error"));
     }
   }
 }

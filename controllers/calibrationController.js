@@ -33,10 +33,10 @@ var formState = {
 class RecorderController {
   async setPointType(req, res, next) {
     const PointType = req.body;
-    console.log("PT", req.body);
+    // console.log("PT", req.body);
     try {
       formState.point_type = PointType;
-      console.log(formState);
+      // console.log(formState);
       return res.status(201).json();
     } catch (error) {
       console.log(error);
@@ -51,11 +51,11 @@ class RecorderController {
       if (findedIndex !== -1) {
         formState.points[findedIndex] = PointLocation;
       } else {
-        console.log(PointLocation);
+        // console.log(PointLocation);
 
         formState.points.push(PointLocation);
       }
-      console.log(formState);
+      // console.log(formState);
       return res.status(201).json();
     } catch (error) {
       console.log(error);
@@ -65,7 +65,7 @@ class RecorderController {
 
   async getPointLocation(req, res, next) {
     try {
-      console.log(req.query);
+      // console.log(req.query);
       const preview = {
         width: 640,
         height: 480,
@@ -94,7 +94,7 @@ class RecorderController {
       if (Marking === "Clear") {
         formState.points = [];
       }
-      console.log(formState);
+      // console.log(formState);
       return res.status(201).json(markingType);
     } catch (error) {
       console.log(error);
@@ -105,7 +105,7 @@ class RecorderController {
   async getState(req, res, next) {
     const response = formState;
     try {
-      console.log(formState);
+      // console.log(formState);
       response.extrinsic_output = `asdasdasd`;
       return res.status(200).json(response);
     } catch (error) {
