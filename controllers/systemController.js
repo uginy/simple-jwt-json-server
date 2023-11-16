@@ -12,9 +12,8 @@ var settings = {
 };
 
 var status = {
-  FPS: Math.floor(Math.random() * 5 + 30),
-  RecordingTime: 0,
-  Temperature: Math.floor(Math.random() * 5 + 35),
+  UpTime: Date.now(),
+  SmartShutterObst: Math.floor(Math.random() * 5 + 135),
   msg: null
 };
 

@@ -7,5 +7,7 @@ router.get("/point_location", calibrationController.getPointLocation);
 router.post("/point_location", calibrationController.setPointLocation);
 router.post("/marking", Router.text(), calibrationController.setMarkingType);
 router.get("/state", calibrationController.getState);
+router.post("/state", calibrationController.updateState);
+router.post("/set_roi", calibrationController.updateRoi);
 
 export default router;

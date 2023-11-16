@@ -1,8 +1,9 @@
 import ApiError from "../errors/apiErrors.js";
 
 var status = {
-  UpTime: Date.now(),
-  SmartShutterObst: Math.floor(Math.random() * 5 + 135),
+  FPS: Math.floor(Math.random() * 5 + 30),
+  RecordingTime: 0,
+  Temperature: Math.floor(Math.random() * 5 + 35),
   msg: null
 };
 class ApplicationController {
@@ -48,6 +49,15 @@ class ApplicationController {
     } catch (error) {
       console.log(error);
       next(ApiError.notFound("Get users error"));
+    }
+  }
+
+  async shutdown(req, res, next) {
+    try {
+      res.status(202).json();
+    } catch (error) {
+      console.log(error);
+      next(ApiError.notFound("Shutdown error"));
     }
   }
 

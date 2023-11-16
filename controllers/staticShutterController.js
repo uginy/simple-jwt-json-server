@@ -1,6 +1,6 @@
 import ApiError from "../errors/apiErrors.js";
 
-var formState = { toggle: false }
+var formState = { toggle: true }
 
 class StaticShutterController {
   async getSettings(req, res, next) {

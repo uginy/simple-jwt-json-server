@@ -1,8 +1,8 @@
-﻿{
+{
   "openapi": "3.0.0",
   "info": {
-    "title": "SV API #1",
-    "description": "API to perform SharpVision operations",
+    "title": "Adasky API (Automotive)",
+    "description": "API to perform Automotive operations",
     "contact": {
       "email": "support@adasky.com"
     },
@@ -10,26 +10,18 @@
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "3.9.4"
+    "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "/api",
-      "description": "Server for camera 1"
+      "url": "/{{apiPath}}",
+      "description": "Server on /api for camera 1 and on /api2 for camera 2"
     }
   ],
   "tags": [
     {
-      "name": "admins",
-      "description": "Secured Admin-only calls"
-    },
-    {
       "name": "main",
       "description": "Operations related to the main screen"
-    },
-    {
-      "name": "geometric_calibration",
-      "description": "Operations for extrinsic calibration and ROI"
     },
     {
       "name": "preview",
@@ -44,108 +36,23 @@
       "description": "Configuration related to ethernet communication streaming"
     },
     {
-      "name": "system",
-      "description": "Configuration related to system configurations"
-    },
-    {
-      "name": "smart_shutter",
-      "description": "Operations related to the shutter"
+      "name": "detector",
+      "description": "Operations related to the Detector"
     },
     {
       "name": "static_shutter",
       "description": "Operations related to the static shutter"
     },
     {
-      "name": "inner_com",
-      "description": "Operations related to FIR Function Block to System Management Function Block"
+      "name": "application",
+      "description": "Operations related to the application managment"
     }
   ],
   "paths": {
-    "/system/sw_upgrade": {
-      "post": {
-        "tags": [
-          "system",
-          "inner_com"
-        ],
-        "summary": "SW upgrade",
-        "description": "upgrade server software (Nox + file system)",
-        "operationId": "sw_upgrade",
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/system_sw_upgrade_body"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "success"
-          },
-          "400": {
-            "description": "invalid"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.system_controller"
-      }
-    },
-    "/system/settings": {
-      "get": {
-        "tags": [
-          "system",
-          "inner_com"
-        ],
-        "summary": "system settings",
-        "description": "get system settings",
-        "operationId": "get_system_settings",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SystemSettings"
-                }
-              }
-            }
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.system_controller"
-      },
-      "post": {
-        "tags": [
-          "system",
-          "inner_com"
-        ],
-        "summary": "system settings",
-        "description": "set system settings",
-        "operationId": "set_system_settings",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/system_settings_body"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "success"
-          },
-          "400": {
-            "description": "invalid"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.system_controller"
-      }
-    },
     "/static_shutter/settings": {
       "get": {
         "tags": [
-          "static_shutter",
-          "inner_com"
+          "static_shutter"
         ],
         "summary": "static shutter settings",
         "description": "get static shutter",
@@ -162,12 +69,11 @@
             }
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.static_shutter_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.static_shutter_controller"
       },
       "post": {
         "tags": [
-          "static_shutter",
-          "inner_com"
+          "static_shutter"
         ],
         "summary": "static shutter settings",
         "description": "set static shutter",
@@ -189,243 +95,13 @@
             "description": "invalid"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.static_shutter_controller"
-      }
-    },
-    "/smart_shutter/manual": {
-      "post": {
-        "tags": [
-          "smart_shutter",
-          "inner_com"
-        ],
-        "summary": "manual smart shutter",
-        "description": "perform manual smart_shutter",
-        "operationId": "manual_smart_shutter",
-        "responses": {
-          "201": {
-            "description": "success"
-          },
-          "400": {
-            "description": "invalid"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.smart_shutter_controller"
-      }
-    },
-    "/smart_shutter/settings": {
-      "get": {
-        "tags": [
-          "smart_shutter",
-          "inner_com"
-        ],
-        "summary": "smart shutter settings",
-        "description": "get smart_shutter",
-        "operationId": "get_smart_shutter",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SmartShutter"
-                }
-              }
-            }
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.smart_shutter_controller"
-      },
-      "post": {
-        "tags": [
-          "smart_shutter",
-          "inner_com"
-        ],
-        "summary": "smart shutter settings",
-        "description": "set smart_shutter",
-        "operationId": "set_smart_shutter",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SmartShutter"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "success"
-          },
-          "400": {
-            "description": "invalid"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.smart_shutter_controller"
-      }
-    },
-    "/geometric_calibration/set_point_type": {
-      "post": {
-        "tags": [
-          "geometric_calibration"
-        ],
-        "summary": "Set point type",
-        "description": "Set one of \"Distance\", \"Direction\", \"ROI\"",
-        "operationId": "set_point_type",
-        "requestBody": {
-          "content": {
-            "application/text": {
-              "schema": {
-                "$ref": "#/components/schemas/PointType"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "success"
-          },
-          "400": {
-            "description": "invalid"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.geometric_calibration_controller"
-      }
-    },
-    "/geometric_calibration/marking": {
-      "post": {
-        "tags": [
-          "geometric_calibration"
-        ],
-        "summary": "Marking points",
-        "description": "Start/Stop/Clear/Copy/Compute point marking",
-        "operationId": "marking",
-        "requestBody": {
-          "content": {
-            "application/text": {
-              "schema": {
-                "$ref": "#/components/schemas/Marking"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "success"
-          },
-          "400": {
-            "description": "invalid"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.geometric_calibration_controller"
-      }
-    },
-    "/geometric_calibration/point_location": {
-      "get": {
-        "tags": [
-          "geometric_calibration"
-        ],
-        "summary": "Get point world position",
-        "description": "Upon height, width coordinates of a point return world position",
-        "operationId": "get_point_location",
-        "parameters": [
-          {
-            "name": "width",
-            "in": "query",
-            "description": "Width of point in preview",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "height",
-            "in": "query",
-            "description": "Height of point in preview",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "World Position",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Point"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "invalid"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.geometric_calibration_controller"
-      },
-      "post": {
-        "tags": [
-          "geometric_calibration"
-        ],
-        "summary": "Set point location",
-        "description": "Set height, width coordinates of a point after choosing type",
-        "operationId": "set_point_location",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PointLocation"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "success"
-          },
-          "400": {
-            "description": "invalid"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.geometric_calibration_controller"
-      }
-    },
-    "/geometric_calibration/state": {
-      "get": {
-        "tags": [
-          "geometric_calibration"
-        ],
-        "summary": "Get current state",
-        "description": "Full state of geometric calibration incl. points array",
-        "operationId": "get_geometric_calibration_state",
-        "responses": {
-          "200": {
-            "description": "State",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GeometricCalibrationState"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "invalid"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.geometric_calibration_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.static_shutter_controller"
       }
     },
     "/record/profile": {
       "get": {
         "tags": [
-          "record",
-          "inner_com"
+          "record"
         ],
         "summary": "Get recording profile",
         "description": "Get recording profile and parameters",
@@ -442,12 +118,11 @@
             }
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.record_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.record_controller"
       },
       "post": {
         "tags": [
-          "record",
-          "inner_com"
+          "record"
         ],
         "summary": "set a recording profile",
         "description": "set one of the recording profiles - All, Production, Minimal. This command should not be used during recording",
@@ -469,14 +144,13 @@
             "description": "invalid"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.record_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.record_controller"
       }
     },
     "/record/state": {
       "get": {
         "tags": [
-          "record",
-          "inner_com"
+          "record"
         ],
         "summary": "Get recording state",
         "description": "Get recording state parameters",
@@ -493,12 +167,11 @@
             }
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.record_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.record_controller"
       },
       "post": {
         "tags": [
-          "record",
-          "inner_com"
+          "record"
         ],
         "summary": "start or stop recording",
         "description": "start or stop recording based on current system status. Note that only `is_recording` field is relevant in this version.",
@@ -520,20 +193,19 @@
             "description": "invalid"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.record_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.record_controller"
       }
     },
-    "/system/status": {
-      "summary": "System status",
-      "description": "Returns system status object",
+    "/application/control": {
+      "summary": "Application control",
+      "description": "Returns Application status object",
       "get": {
         "tags": [
-          "system",
-          "inner_com"
+          "application"
         ],
-        "summary": "Get system status",
-        "description": "Get system status",
-        "operationId": "get_system_status",
+        "summary": "Get application Status",
+        "description": "Get application Status",
+        "operationId": "get_application_status",
         "responses": {
           "200": {
             "description": "Ok",
@@ -546,42 +218,13 @@
             }
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.system_controller"
-      },
-      "post": {
-        "tags": [
-          "system",
-          "inner_com"
-        ],
-        "summary": "set a response in case GET status returned InteractiveMsgBox",
-        "description": "set one of the return values from InteractiveMsgBox",
-        "operationId": "set_interactive_msg_box",
-        "parameters": [
-          {
-            "name": "value",
-            "in": "query",
-            "description": "return value",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "response was set"
-          }
-        },
-        "x-openapi-router-controller": "swagger_server.controllers.system_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.application_controller"
       }
     },
-    "/system/detailed_logs": {
+    "/application/detailed_logs": {
       "get": {
         "tags": [
-          "system",
-          "inner_com"
+          "application"
         ],
         "summary": "Get detailed logs",
         "description": "Returns a .7z file to be sent to Adasky",
@@ -591,18 +234,26 @@
             "description": "The log .7z file is not ready yet"
           },
           "200": {
-            "description": "A .7z file"
+            "description": "A .7z file",
+            "content": {
+              "application/x-7z-compressed": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary",
+                  "x-content-type": "application/x-7z-compressed"
+                }
+              }
+            }
           },
           "400": {
             "description": "invalid"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.system_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.application_controller"
       },
       "post": {
         "tags": [
-          "system",
-          "inner_com"
+          "application"
         ],
         "summary": "Generate detailed logs",
         "description": "Only generate the log files to be downloaded later",
@@ -612,14 +263,13 @@
             "description": "response was set"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.system_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.application_controller"
       }
     },
     "/main/components": {
       "get": {
         "tags": [
-          "main",
-          "inner_com"
+          "main"
         ],
         "summary": "Get available components",
         "description": "Returns a list of all visible components",
@@ -640,14 +290,13 @@
             }
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.main_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.main_controller"
       }
     },
     "/main/about": {
       "get": {
         "tags": [
-          "main",
-          "inner_com"
+          "main"
         ],
         "summary": "Get version",
         "description": "Returns a string per versioned item",
@@ -664,14 +313,13 @@
             }
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.main_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.main_controller"
       }
     },
     "/main/userconfig": {
       "post": {
         "tags": [
-          "main",
-          "inner_com"
+          "main"
         ],
         "summary": "Update user config",
         "description": "Update user json configuration. This command takes effect only after application restart.",
@@ -690,14 +338,13 @@
             "description": "Ok"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.main_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.main_controller"
       }
     },
     "/main/userconfig/{extension}": {
       "get": {
         "tags": [
-          "main",
-          "inner_com"
+          "main"
         ],
         "summary": "Get user config",
         "description": "Returns user json configuration",
@@ -728,12 +375,11 @@
             }
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.main_controller"
+        "x-openapi-router-controller": "swaggerswagger_server_self_eval_server.controllers.main_controller"
       },
       "delete": {
         "tags": [
-          "main",
-          "inner_com"
+          "main"
         ],
         "summary": "Remove user config",
         "description": "Remove user json configuration. This command takes effect only after application restart.",
@@ -756,7 +402,7 @@
             "description": "Ok"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.main_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.main_controller"
       }
     },
     "/preview/hotkeys": {
@@ -765,7 +411,7 @@
           "preview"
         ],
         "summary": "Various operations to control the provided preview stream",
-        "description": "Shift+H                       Show this screen\n\nShift+F                       Vertical Flip\n\nShift+C                       Draw cross\n\nShift+A                       Zoom/Pan reset\n\nShift+Z, Shift+Ctrl+Z         Zoom In/Out\n\nMouse Wheel                   Zoom In/Out\n\nArrows                        Pan right/left/up/down\n\nShift+R                       Draw ROI\n\nShift+D                       Draw Date & Time\n\nShift+W                       World Position\n\nShift+X                       Draw X=0 Line\n\nBounding Box (bb) controls:\n\n1                             display bb only\n\n2                             display bb coordinates\n\n3                             display bb width-height\n\n4                             display image-related bb info\n\n5                             display position-related bb info (if applicable)\n\nShift+L, Shift+Ctrl+L         BB width wider/thinner\n",
+        "description": "Shift+H                       Show this screen\n\nShift+F                       Vertical Flip\n\nShift+C                       Draw cross\n\nShift+A                       Zoom/Pan reset\n\nShift+Z, Shift+Ctrl+Z         Zoom In/Out\n\nMouse Wheel                   Zoom In/Out\n\nArrows                        Pan right/left/up/down\n\nShift+R                       Draw ROI\n\nShift+D                       Draw Date & Time\n\nShift+W                       World Position\n\nShift+X                       Draw X=0 Line\n\nShift+T                       Draw calibration\n\nBounding Box (bb) controls:\n\n1                             display bb only\n\n2                             display bb coordinates\n\n3                             display bb width-height\n\n4                             display image-related bb info\n\n5                             display position-related bb info (if applicable)\n\nShift+L, Shift+Ctrl+L         BB width wider/thinner\n",
         "operationId": "hotkeys",
         "requestBody": {
           "content": {
@@ -784,14 +430,13 @@
             "description": "invalid"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.preview_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.preview_controller"
       }
     },
     "/v2i/settings": {
       "get": {
         "tags": [
-          "v2i",
-          "inner_com"
+          "v2i"
         ],
         "summary": "get v2i settings",
         "description": "get detinations parameters + enable/disable",
@@ -811,15 +456,14 @@
             "description": "invalid"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.v2i_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.v2i_controller"
       },
       "post": {
         "tags": [
-          "v2i",
-          "inner_com"
+          "v2i"
         ],
         "summary": "set v2i settings",
-        "description": "set detinations parameters + enable/disable",
+        "description": "set destinations parameters + enable/disable",
         "operationId": "set_v2i_settings",
         "requestBody": {
           "content": {
@@ -838,44 +482,61 @@
             "description": "invalid"
           }
         },
-        "x-openapi-router-controller": "swagger_server.controllers.v2i_controller"
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.v2i_controller"
+      }
+    },
+    "/detector/settings": {
+      "get": {
+        "tags": [
+          "detector"
+        ],
+        "summary": "detector settings",
+        "description": "get detector settings",
+        "operationId": "get_detector_settings",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Detector"
+                }
+              }
+            }
+          }
+        },
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.detector_controller"
+      },
+      "post": {
+        "tags": [
+          "detector"
+        ],
+        "summary": "detector settings",
+        "description": "set detector settings",
+        "operationId": "set_detector_settings",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Detector"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "success"
+          },
+          "400": {
+            "description": "invalid"
+          }
+        },
+        "x-openapi-router-controller": "swagger_adas.swagger_server.controllers.detector_controller"
       }
     }
   },
   "components": {
     "schemas": {
-      "Status": {
-        "type": "object",
-        "properties": {
-          "UpTime": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "RecordingTime": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "FPS": {
-            "type": "string"
-          },
-          "msg": {
-            "$ref": "#/components/schemas/InteractiveMsgBox"
-          }
-        },
-        "example": {
-          "msg": {
-            "msg": "msg",
-            "severity": "severity",
-            "response": [
-              "response",
-              "response"
-            ]
-          },
-          "RecordingTime": 6,
-          "UpTime": 0,
-          "FPS": "FPS"
-        }
-      },
       "InteractiveMsgBox": {
         "type": "object",
         "properties": {
@@ -901,72 +562,30 @@
           ]
         }
       },
-      "Point": {
+      "Status": {
         "type": "object",
         "properties": {
-          "width": {
-            "maximum": 639,
-            "minimum": 0,
+          "RecordingTime": {
             "type": "integer",
-            "description": "0 is left 639 is right",
-            "format": "uint16"
+            "format": "int64"
           },
-          "height": {
-            "maximum": 479,
-            "minimum": 0,
-            "type": "integer",
-            "description": "0 is down 479 is up",
-            "format": "uint16"
+          "FPS": {
+            "type": "string"
+          },
+          "msg": {
+            "$ref": "#/components/schemas/InteractiveMsgBox"
           }
         },
         "example": {
-          "width": 300,
-          "height": 200
+          "RecordingTime": 6,
+          "FPS": "FPS",
+          "msg": "msg",
+          "severity": "severity",
+          "response": [
+            "response",
+            "response"
+          ]
         }
-      },
-      "PointLocation": {
-        "type": "object",
-        "properties": {
-          "width": {
-            "type": "integer"
-          },
-          "height": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string",
-            "default": ""
-          },
-          "distance": {
-            "type": "number",
-            "default": 0
-          },
-          "comment": {
-            "type": "string",
-            "default": ""
-          },
-          "color": {
-            "type": "string",
-            "default": ""
-          }
-        },
-        "example": {
-          "distance": 1.4658129805029452,
-          "color": "color",
-          "width": 0,
-          "name": "name",
-          "comment": "comment",
-          "height": 6
-        }
-      },
-      "PointType": {
-        "type": "string",
-        "example": "Distance",
-        "enum": [
-          "Distance",
-          "Direction",
-          "ROI"
-        ]
       },
       "RecordingMode": {
         "type": "string",
@@ -1040,11 +659,9 @@
             },
             "preview": true,
             "camera_control": true,
-            "geometric_calibration": true,
             "monitor": true,
             "v2i": true,
-            "detector": true,
-            "smart_shutter": true
+            "detector": true
           },
           "watchdog": {
             "min_minutes_to_save": 5,
@@ -1071,126 +688,23 @@
           "toggle": true
         }
       },
-      "SmartShutter": {
-        "type": "object",
-        "properties": {
-          "shutterMode": {
-            "type": "string",
-            "enum": [
-              "obstruction",
-              "periodic",
-              "both"
-            ],
-            "default": "both"
-          },
-          "autoHeater": {
-            "type": "boolean",
-            "default": true
-          },
-          "selfTestOnBoot": {
-            "type": "boolean",
-            "default": true
-          }
-        },
-        "example": {
-          "shutterMode": "both",
-          "autoHeater": true,
-          "selfTestOnBoot": true
-        }
-      },
-      "Marking": {
-        "type": "string",
-        "example": "Clear",
-        "enum": [
-          "Start",
-          "Stop",
-          "Clear",
-          "Copy",
-          "Compute"
-        ]
-      },
-      "SystemCommandParam": {
-        "type": "string",
-        "description": "Parameters for needed comands",
-        "example": "Camera number 1 or 2",
-        "default": ""
-      },
       "SystemCommand": {
         "type": "string",
         "enum": [
           "RestartApp",
           "Reboot",
-          "Shutdown",
-          "SetDate",
-          "SetTimezone",
-          "ToggleNTP",
-          "SetNTP",
-          "SetNvpmodel",
-          "SetNetwork"
+          "Shutdown"
         ]
       },
       "Components": {
         "type": "string",
         "enum": [
-          "geometric_calibration",
           "recorder",
           "v2i",
           "system",
-          "smart_shutter",
           "image_quality",
           "analytics"
         ]
-      },
-      "SystemSettings": {
-        "type": "object",
-        "properties": {
-          "dhcp_timeout": {
-            "type": "integer",
-            "default": 10
-          },
-          "fallback_ip": {
-            "type": "string",
-            "default": "192.168.1.5"
-          },
-          "fallback_netmask": {
-            "type": "integer",
-            "default": 24
-          },
-          "fallback_gw": {
-            "type": "string",
-            "default": "192.168.1.2"
-          },
-          "date_time": {
-            "type": "string",
-            "default": ""
-          },
-          "timezone": {
-            "type": "string",
-            "default": ""
-          },
-          "ntp_enabled": {
-            "type": "boolean",
-            "default": true
-          },
-          "ntp_conf": {
-            "type": "string",
-            "default": ""
-          },
-          "nvpmodel": {
-            "type": "integer",
-            "default": 3
-          }
-        },
-        "example": {
-          "dhcp_timeout": 0,
-          "nvpmodel": 1,
-          "fallback_netmask": 6,
-          "fallback_gw": "192.168.1.2",
-          "date_time": "date_time",
-          "ntp_conf": "ntp_conf",
-          "timezone": "timezone",
-          "fallback_ip": "192.168.1.5"
-        }
       },
       "Hotkeys": {
         "type": "string",
@@ -1205,7 +719,8 @@
           "4",
           "5",
           "L",
-          "Shift+L"
+          "Shift+L",
+          "T"
         ]
       },
       "About": {
@@ -1215,9 +730,6 @@
             "type": "string"
           },
           "Viper": {
-            "type": "string"
-          },
-          "Platform": {
             "type": "string"
           },
           "SDK": {
@@ -1230,7 +742,6 @@
         "example": {
           "Nox": "Nox",
           "Viper": "Viper",
-          "Platform": "Platform",
           "SDK": "SDK",
           "CameraId": "CameraId"
         }
@@ -1273,149 +784,12 @@
           }
         },
         "example": {
-          "myself": {
+          "video": {
             "port": 0,
             "enable": true,
             "ip": "ip",
             "name": "name"
           }
-        }
-      },
-      "GeometricCalibrationState": {
-        "type": "object",
-        "properties": {
-          "camera_id": {
-            "type": "string"
-          },
-          "point_type": {
-            "$ref": "#/components/schemas/PointType"
-          },
-          "points": {
-            "maxItems": 10,
-            "minItems": 0,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PointLocation"
-            }
-          },
-          "intrinsic_file": {
-            "type": "string"
-          },
-          "distance_csv_file": {
-            "type": "string"
-          },
-          "direction_points": {
-            "type": "string"
-          },
-          "roi_points": {
-            "type": "string"
-          },
-          "extrinsic_output": {
-            "type": "string"
-          },
-          "marking": {
-            "type": "boolean"
-          },
-          "auto_calib": {
-            "type": "boolean"
-          },
-          "non_flat_surface": {
-            "type": "boolean"
-          }
-        },
-        "example": {
-          "point_type": "Distance",
-          "marking": true,
-          "auto_calib": false,
-          "non_flat_surface": false,
-          "intrinsic_file": "intrinsic_file",
-          "camera_id": "camera_id",
-          "direction_points": "direction_points",
-          "extrinsic_output": "extrinsic_output",
-          "roi_points": "roi_points",
-          "points": [
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            },
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            },
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            },
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            },
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            },
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            },
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            },
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            },
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            },
-            {
-              "distance": 1.4658129805029452,
-              "color": "color",
-              "width": 0,
-              "name": "name",
-              "comment": "comment",
-              "height": 6
-            }
-          ],
-          "distance_csv_file": "distance_csv_file"
         }
       },
       "UpdateUserConfig": {
@@ -1435,34 +809,6 @@
           "extension": "extension",
           "password": "password",
           "config": {}
-        }
-      },
-      "system_sw_upgrade_body": {
-        "required": [
-          "fwpackage"
-        ],
-        "type": "object",
-        "properties": {
-          "fwpackage": {
-            "type": "string",
-            "description": "Firmware package to be uploaded to the server",
-            "format": "binary"
-          }
-        },
-        "additionalProperties": false
-      },
-      "system_settings_body": {
-        "type": "object",
-        "properties": {
-          "settings": {
-            "$ref": "#/components/schemas/SystemSettings"
-          },
-          "command": {
-            "$ref": "#/components/schemas/SystemCommand"
-          },
-          "parameter": {
-            "$ref": "#/components/schemas/SystemCommandParam"
-          }
         }
       },
       "RecordingProfile_extensions_capture_stream": {
@@ -1530,16 +876,10 @@
           "preview": {
             "type": "boolean"
           },
-          "smart_shutter": {
-            "type": "boolean"
-          },
           "monitor": {
             "type": "boolean"
           },
           "v2i": {
-            "type": "boolean"
-          },
-          "geometric_calibration": {
             "type": "boolean"
           }
         },
@@ -1557,11 +897,9 @@
           },
           "preview": true,
           "camera_control": true,
-          "geometric_calibration": true,
           "monitor": true,
           "v2i": true,
-          "detector": true,
-          "smart_shutter": true
+          "detector": true
         }
       },
       "RecordingProfile_watchdog": {
@@ -1597,6 +935,19 @@
           "disk_space_warn_mb": 6,
           "disk_space_abort_mb": 1,
           "min_nox_exp": 7
+        }
+      },
+      "Detector": {
+        "type": "object",
+        "properties": {
+          "Obstacles": {
+            "type": "boolean",
+            "description": "Obstacles On/Off",
+            "default": true
+          }
+        },
+        "example": {
+          "Obstacles": false
         }
       }
     }
