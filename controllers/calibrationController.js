@@ -1,34 +1,84 @@
 import ApiError from "../errors/apiErrors.js";
 
+const pointTypeMap = {
+    Distance: 'distance_points',
+    Direction: 'direction_points',
+    ROI: 'roi_points',
+    Control: 'control_points',
+}
+
+const defaultPoints = {
+    distance_points: [],
+    direction_points: [],
+    roi_points: [],
+    control_points: [],
+}
+
 var markingType = "Default";
-var formState = {
+var formStateDisk = {
     state: "Compute_Available",
-    fov: 1111,
-    point_type: "Distance",
+    fov: 2222,
     marking: false,
     camera_id: "VC666602_sensor180013",
     intrinsic_file: "string",
     direction_points: "string",
     extrinsic_output: "string",
     roi_points: "roi_points",
-    points: [
-        {
-            width: 10,
-            height: 20,
-            name: "P01",
-            distance: 30,
-            comment: "Comment here",
-            color: "3FC6D4",
-        },
-        {
-            width: 11,
-            height: 23,
-            name: "P11",
-            distance: 37,
-            comment: "Comment here",
-            color: "D4C157",
-        },
-    ],
+    points: {
+        distance_points: [
+            {
+                point_type: "Distance",
+                distance: 12,
+                color: "color",
+                width: 0,
+                name: "name1",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "Distance",
+                distance: 1.12,
+                color: "color",
+                width: 0,
+                name: "name2",
+                comment: "comment",
+                height: 6
+            }
+        ],
+        direction_points: [
+            {
+                point_type: "Direction",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name1",
+                comment: "comment",
+                height: 6
+            },
+        ],
+        roi_points: [
+            {
+                point_type: "ROI",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name1",
+                comment: "comment",
+                height: 6
+            },
+        ],
+        control_points: [
+            {
+                point_type: "Control",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name1",
+                comment: "comment",
+                height: 6
+            },
+        ]
+    },
     distance_csv_file: "distance_csv_file",
     settings: {
         action: "None",
@@ -37,6 +87,151 @@ var formState = {
         non_flat_surface: false,
     }
 };
+var formState = {
+    state: "Compute_Available",
+    fov: 1111,
+    marking: false,
+    camera_id: "VC666602_sensor180013",
+    intrinsic_file: "string",
+    direction_points: "string",
+    extrinsic_output: "string",
+    roi_points: "roi_points",
+    points: {
+        distance_points: [
+            {
+                point_type: "Distance",
+                distance: 12,
+                color: "color",
+                width: 0,
+                name: "name1",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "Distance",
+                distance: 1.12,
+                color: "color",
+                width: 0,
+                name: "name2",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "Distance",
+                distance: 1.12,
+                color: "color",
+                width: 0,
+                name: "name3",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "Distance",
+                distance: 1.12,
+                color: "color",
+                width: 0,
+                name: "name4",
+                comment: "comment",
+                height: 6
+            }
+        ],
+        direction_points: [
+            {
+                point_type: "Direction",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name1",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "Direction",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name2",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "Direction",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name3",
+                comment: "comment",
+                height: 6
+            }
+        ],
+        roi_points: [
+            {
+                point_type: "ROI",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name1",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "ROI",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name2",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "ROI",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name3",
+                comment: "comment",
+                height: 6
+            }
+        ],
+        control_points: [
+            {
+                point_type: "Control",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name1",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "Control",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name2",
+                comment: "comment",
+                height: 6
+            },
+            {
+                point_type: "Control",
+                distance: 0,
+                color: "color",
+                width: 0,
+                name: "name3",
+                comment: "comment",
+                height: 6
+            }
+        ]
+    },
+    distance_csv_file: "distance_csv_file",
+    settings: {
+        action: "None",
+        camera_height: 470,
+        auto_calib: false,
+        non_flat_surface: false,
+    }
+};
+
 
 class RecorderController {
     async setPointType(req, res, next) {
@@ -54,13 +249,16 @@ class RecorderController {
 
     async setPointLocation(req, res, next) {
         const PointLocation = req.body;
+        const currentPointType = pointTypeMap[req.body.point_type]
         try {
-            const findedIndex = formState.points.findIndex((el) => el.width === PointLocation.width && el.height === PointLocation.height);
-            if (findedIndex !== -1) {
-                formState.points[findedIndex] = PointLocation;
+            const foundIndex = formState.points[currentPointType]?.findIndex((el) => el.width === PointLocation.width && el.height === PointLocation.height);
+            if (foundIndex !== -1) {
+                formState.points[currentPointType][foundIndex] = PointLocation;
             } else {
-                // console.log(PointLocation);
-                formState.points.push(PointLocation);
+                if (!formState.points[currentPointType]?.length) {
+                    formState.points[currentPointType] = []
+                }
+                formState.points[currentPointType].push(PointLocation);
             }
             console.log(formState);
             return res.status(201).json();
@@ -99,7 +297,10 @@ class RecorderController {
                 formState.marking = false;
             }
             if (Marking === "Clear") {
-                formState.points = [];
+                formState = {
+                    ...formState,
+                    points: defaultPoints
+                }
             }
             // console.log(formState);
             return res.status(204).json(markingType);
@@ -114,7 +315,7 @@ class RecorderController {
         try {
             // console.log(formState);
             response.extrinsic_output = `asdasdasd`;
-            response.state = ["Extrinsics_Exists","Compute_available"][Math.random() > 0.5 ? 1 : 0]
+            response.state = ["Extrinsics_Exists", "Compute_available"][Math.random() > 0.5 ? 1 : 0]
             return res.status(200).json(response);
         } catch (error) {
             console.log(error);
@@ -123,12 +324,15 @@ class RecorderController {
     }
 
     async updateState(req, res, next) {
+        const isReset = req.body.action === 'Reset'
+        const isLoad = req.body.action === 'Load'
         try {
-            // console.log(req.body);
             formState = {
                 ...formState,
-                settings: req.body
+                points: isReset ? defaultPoints : isLoad ? formStateDisk.points : formState.points,
+                settings: {...req.body }
             };
+
             return res.status(204).json();
         } catch (error) {
             console.log(error);
